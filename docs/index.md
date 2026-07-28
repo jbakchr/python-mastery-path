@@ -141,6 +141,69 @@ This site is designed for:
 
 ---
 
+## Exercise Philosophy
+
+Exercises in Python Mastery Path begin with realistic scenarios rather than abstract coding tasks.
+
+The goal is not merely to learn syntax.
+
+The goal is to understand:
+
+- Why a Python feature is useful
+- When a Python feature becomes useful
+- How Python helps solve practical problems
+
+For this reason, every exercise begins with a realistic scenario.
+
+Instead of presenting tasks such as:
+
+```text
+Create a Path object.
+```
+
+an exercise might begin with:
+
+```text
+You have a notes file on your computer and want Python
+to work with that file.
+```
+
+The intention is to help learners think:
+
+> "I've encountered that problem before."
+
+or:
+
+> "That sounds useful."
+
+rather than:
+
+> "Here's another coding challenge."
+
+Every exercise is designed to introduce a real problem and help you develop the capability needed to solve it.
+
+```text
+Problem
+    ↓
+Task
+    ↓
+Solution
+```
+
+rather than:
+
+```text
+Task
+    ↓
+Task
+    ↓
+Task
+```
+
+The focus of Python Mastery Path is to build practical capabilities through meaningful problems.
+
+---
+
 ## Philosophy
 
 Python mastery is not achieved by memorizing syntax.
