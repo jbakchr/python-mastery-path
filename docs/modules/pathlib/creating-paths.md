@@ -49,15 +49,15 @@ Your program should:
 - Store it in a variable named `path`
 - Print the path
 
-##### _Hint 1_
+#### _Hint 1_
 
 The pathlib module provides a `Path` class.
 
-##### _Hint 2_
+#### _Hint 2_
 
 Import `Path` from `pathlib`.
 
-##### _Hint 3_
+#### _Hint 3_
 
 Create a Path object using the string:
 
