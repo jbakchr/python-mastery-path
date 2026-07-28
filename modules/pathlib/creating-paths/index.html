@@ -742,6 +742,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#objective" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -751,6 +762,18 @@
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Success Criteria">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#hint-1" class="md-nav__link">
@@ -782,6 +805,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -878,16 +906,30 @@
 <hr />
 <h2 id="discover"><strong>Discover</strong><a class="headerlink" href="#discover" title="Permanent link">&para;</a></h2>
 <h3 id="pathlib-cp-01">PATHLIB-CP-01<a class="headerlink" href="#pathlib-cp-01" title="Permanent link">&para;</a></h3>
-<h4 id="objective"><em>Objective</em><a class="headerlink" href="#objective" title="Permanent link">&para;</a></h4>
-<p>Create a Path object representing the following file:</p>
-<pre><code class="language-text">notes/todo.txt
+<h4 id="scenario">Scenario<a class="headerlink" href="#scenario" title="Permanent link">&para;</a></h4>
+<p>You keep personal notes in a text file located at:</p>
+<pre><code>notes/todo.txt
+</code></pre>
+<p>Before Python can work with this file, your program needs a way to represent its location on disk.</p>
+<p>This is one of the most common uses of pathlib.</p>
+<h4 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h4>
+<p>Create a Path object representing:</p>
+<pre><code>notes/todo.txt
 </code></pre>
 <p>Store it in a variable named <code>path</code>.</p>
-<h4 id="hint-1"><em>Hint 1</em><a class="headerlink" href="#hint-1" title="Permanent link">&para;</a></h4>
+<p>Print the path to the console.</p>
+<h4 id="success-criteria">Success Criteria<a class="headerlink" href="#success-criteria" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Store it in a variable named <code>path</code></li>
+<li>Print the path</li>
+</ul>
+<h5 id="hint-1"><em>Hint 1</em><a class="headerlink" href="#hint-1" title="Permanent link">&para;</a></h5>
 <p>The pathlib module provides a <code>Path</code> class.</p>
-<h4 id="hint-2"><em>Hint 2</em><a class="headerlink" href="#hint-2" title="Permanent link">&para;</a></h4>
+<h5 id="hint-2"><em>Hint 2</em><a class="headerlink" href="#hint-2" title="Permanent link">&para;</a></h5>
 <p>Import <code>Path</code> from <code>pathlib</code>.</p>
-<h4 id="hint-3"><em>Hint 3</em><a class="headerlink" href="#hint-3" title="Permanent link">&para;</a></h4>
+<h5 id="hint-3"><em>Hint 3</em><a class="headerlink" href="#hint-3" title="Permanent link">&para;</a></h5>
 <p>Create a Path object using the string:</p>
 <pre><code class="language-python">&quot;notes/todo.txt&quot;
 </code></pre>
