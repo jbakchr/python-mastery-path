@@ -69,31 +69,179 @@ Create a Path object using the string:
 
 ### PATHLIB-CP-02
 
+#### Scenario
+
+You keep project documentation inside a repository.
+
+One file you frequently update is:
+
+```text
+docs/README.md
+```
+
+Before your Python script can work with that file, it needs a way to represent its location.
+
 #### Objective
 
 Create a Path object representing:
 
 ```text
-projects/python/app.py
+docs/README.md
 ```
 
-Print the path object.
+Store it in a variable named path.
 
-#### Hint 1
+Print the path.
 
-The path does not need to exist.
+#### Success Criteria
 
-### Hint 2
+Your program should:
 
-Path objects can be printed.
+- Create a Path object
+- Store it in a variable named `path`
+- Print the path
+
+#### _Hint 1_
+
+The location should become a Path object.
+
+#### _Hint 2_
+
+Import Path from pathlib.
+
+#### _Hint 3_
+
+```python
+Path("docs/README.md")
+```
+
+#### Why This Exercise Exists
+
+Introduces another common real-world file location without adding new concepts.
 
 ---
 
-# Apply
+### PATHLIB-CP-03
 
-## PATHLIB-CP-03
+#### Scenario
 
-### Objective
+You are writing an automation script for your Downloads folder.
+
+The script will eventually organize files, but first it needs a way to represent the folder itself.
+
+The folder is:
+
+```text
+Downloads
+```
+
+#### Objective
+
+Create a Path object representing:
+
+```text
+Downloads
+```
+
+Store it in a variable named downloads_path.
+
+Print the path.
+
+#### Success Criteria
+
+Your program should:
+
+- Create a Path object representing a directory
+- Store it in downloads_path
+- Print the path
+
+#### _Hint 1_
+
+Paths can represent folders as well as files.
+
+#### _Hint 2_
+
+You still use the Path class.
+
+#### _Hint 3_
+
+```python
+Path("Downloads")
+```
+
+#### Why This Exercise Exists
+
+Many beginners subconsciously think paths are only files.
+
+This teaches:
+
+```
+Path → file OR directory
+```
+
+which is an important mental model.
+
+---
+
+### PATHLIB-CP-04
+
+#### Scenario
+
+You are working on a backup script.
+
+The script needs access to a file located inside several folders:
+
+```
+projects/python/backups/config.json
+```
+
+Before the file can be read, your program must represent its location.
+
+#### Objective
+
+Create a Path object representing:
+
+```
+projects/python/backups/config.json
+```
+
+Store it in a variable named config_path.
+
+Print the path.
+
+#### Success Criteria
+
+Your program should:
+
+- Create the Path object
+- Store it in config_path
+- Print the path
+
+#### _Hint 1_
+
+A path can contain multiple nested directories.
+
+#### _Hint 2_
+
+Pass the full location to Path.
+
+#### _Hint 3_
+
+```
+Path("projects/python/backups/config.json")
+```
+
+#### Why This Exercise Exists
+
+Introduces deeper directory structures without introducing any new API.
+
+---
+
+## **Apply**
+
+### PATHLIB-CP-05
+
+#### Objective
 
 Create a Path object representing:
 
@@ -109,23 +257,23 @@ projects/python
 
 using path joining.
 
-### Hint 1
+#### Hint 1
 
 Create the base path first.
 
-### Hint 2
+#### Hint 2
 
 Path objects can be combined.
 
-### Hint 3
+#### Hint 3
 
 Look for the `/` operator.
 
 ---
 
-## PATHLIB-CP-04
+### PATHLIB-CP-06
 
-### Objective
+#### Objective
 
 Create this path without writing the full string directly:
 
@@ -135,11 +283,11 @@ reports/2026/july/report.txt
 
 Build it by combining smaller path segments.
 
-### Hint 1
+#### Hint 1
 
 Create the root directory first.
 
-### Hint 2
+#### Hint 2
 
 Combine additional segments step by step.
 
