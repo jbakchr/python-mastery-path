@@ -1,6 +1,6 @@
-# pathlib - Creating Paths
+# **pathlib - Creating Paths**
 
-## Overview
+## **Overview**
 
 The exercises in this section focus on creating and combining `Path` objects.
 
@@ -13,11 +13,11 @@ By completing these exercises you will learn how to:
 
 ---
 
-# Discover
+## **Discover**
 
-## PATHLIB-CP-01
+### PATHLIB-CP-01
 
-### Objective
+#### _Objective_
 
 Create a Path object representing the following file:
 
@@ -27,15 +27,15 @@ notes/todo.txt
 
 Store it in a variable named `path`.
 
-### Hint 1
+#### _Hint 1_
 
 The pathlib module provides a `Path` class.
 
-### Hint 2
+#### _Hint 2_
 
 Import `Path` from `pathlib`.
 
-### Hint 3
+#### _Hint 3_
 
 Create a Path object using the string:
 
@@ -45,9 +45,9 @@ Create a Path object using the string:
 
 ---
 
-## PATHLIB-CP-02
+### PATHLIB-CP-02
 
-### Objective
+#### Objective
 
 Create a Path object representing:
 
@@ -57,7 +57,7 @@ projects/python/app.py
 
 Print the path object.
 
-### Hint 1
+#### Hint 1
 
 The path does not need to exist.
 
