@@ -333,15 +333,15 @@ Your program should:
 - Build the final file path
 - Print the result
 
-#### Hint 1
+#### _Hint 1_
 
 A Path object can be combined with other path parts.
 
-#### Hint 2
+#### _Hint 2_
 
 Look for an operator that joins paths together.
 
-#### Hint 3
+#### _Hint 3_
 
 ```
 project_dir / "README.md"
@@ -393,15 +393,15 @@ Your program should:
 - Append a filename
 - Print the final path
 
-#### Hint 1
+#### _Hint 1_
 
 Create the folder path first.
 
-#### Hint 2
+#### _Hint 2_
 
 Use / to add another path component.
 
-#### Hint 3
+#### _Hint 3_
 
 ```
 notes_dir / "meeting.txt"
@@ -413,29 +413,187 @@ Reinforces the composition concept.
 
 ---
 
+### PATHLIB-CP-08
 
+#### Scenario
 
----
+You are building a documentation tool.
 
-### PATHLIB-CP-06
+Documentation files live inside:
+
+```
+docs/
+```
+
+The user chooses which page to open.
+
+The page name is stored in:
+
+```
+page_name = "installation.md"
+```
+
+Your program needs to build the full path.
 
 #### Objective
 
-Create this path without writing the full string directly:
+Create:
 
-```text
-reports/2026/july/report.txt
+```
+docs/installation.md
 ```
 
-Build it by combining smaller path segments.
+using page_name.
 
-#### Hint 1
+Store the result in page_path.
 
-Create the root directory first.
+Print the path.
 
-#### Hint 2
+#### Success Criteria
 
-Combine additional segments step by step.
+Your program should:
+
+- Use the provided variable
+- Build the path dynamically
+- Print the path
+
+#### _Hint 1_
+
+Variables can be combined with Path objects.
+
+#### _Hint 2_
+
+The / operator works with strings.
+
+#### _Hint 3_
+
+```
+docs_dir / page_name
+```
+
+#### Why This Exercise Exists
+
+Introduces dynamic path building.
+
+This feels much closer to real software.
+
+---
+
+### PATHLIB-CP-09
+
+#### Scenario
+
+You are building a backup utility.
+
+Backups are stored inside:
+
+```
+backups
+```
+
+Each backup belongs to a specific year.
+
+The year is stored in:
+
+```
+year = "2026"
+```
+
+You need to create:
+
+```
+backups/2026
+```
+
+#### Objective
+
+Build the path using multiple components.
+
+Store the result in backup_dir.
+
+Print the path.
+
+#### Success Criteria
+
+Your program should:
+
+- Create the root backup directory
+- Add the year folder
+- Print the final path
+
+#### _Hint 1_
+
+Each folder can be added separately.
+
+#### _Hint 2_
+
+Use / more than once if needed.
+
+#### _Hint 3_
+
+```
+Path("backups") / year
+```
+
+#### Why This Exercise Exists
+
+Shows that directories can be built dynamically just like files.
+
+---
+
+### PATHLIB-CP-10
+
+#### Scenario
+
+You are organizing project files.
+
+A configuration file is stored in:
+
+```
+projects/demo/config/settings.json
+```
+
+Rather than writing the entire path as a string, you decide to build it from meaningful components.
+
+#### Objective
+
+Construct:
+
+```
+projects/demo/config/settings.json
+```
+
+using multiple path segments.
+
+Store the result in settings_path.
+
+Print the path.
+
+#### Success Criteria
+
+Your program should:
+
+- Create the path step by step
+- Use the / operator
+- Print the final result
+
+#### _Hint 1_
+
+Each folder can be its own path component.
+
+#### _Hint 2_
+
+Chain multiple / operations.
+
+#### _Hint 3_
+
+```
+Path("projects") / "demo" / "config" / "settings.json"
+```
+
+#### Why This Exercise Exists
+
+Demonstrates how larger paths can remain readable and maintainable.
 
 ---
 
