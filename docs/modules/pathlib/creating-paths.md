@@ -17,25 +17,47 @@ By completing these exercises you will learn how to:
 
 ### PATHLIB-CP-01
 
-#### _Objective_
+#### Scenario
 
-Create a Path object representing the following file:
+You keep personal notes in a text file located at:
 
-```text
+```
+notes/todo.txt
+```
+
+Before Python can work with this file, your program needs a way to represent its location on disk.
+
+This is one of the most common uses of pathlib.
+
+#### Objective
+
+Create a Path object representing:
+
+```
 notes/todo.txt
 ```
 
 Store it in a variable named `path`.
 
-#### _Hint 1_
+Print the path to the console.
+
+#### Success Criteria
+
+Your program should:
+
+- Create a Path object
+- Store it in a variable named `path`
+- Print the path
+
+##### _Hint 1_
 
 The pathlib module provides a `Path` class.
 
-#### _Hint 2_
+##### _Hint 2_
 
 Import `Path` from `pathlib`.
 
-#### _Hint 3_
+##### _Hint 3_
 
 Create a Path object using the string:
 
