@@ -235,39 +235,185 @@ Path("projects/python/backups/config.json")
 
 Introduces deeper directory structures without introducing any new API.
 
----
-
-## **Apply**
-
 ### PATHLIB-CP-05
+
+#### Scenario
+
+You have several markdown files inside a documentation project.
+
+One of them is:
+
+```
+guides/getting-started.md
+```
+
+You want Python to keep track of that file's location.
 
 #### Objective
 
 Create a Path object representing:
 
-```text
-projects
+```
+guides/getting-started.md
 ```
 
-Then create another Path object representing:
+Store it in a variable named guide_path.
 
-```text
-projects/python
-```
+Print the path.
 
-using path joining.
+#### Success Criteria
+
+Your program should:
+
+- Create the Path object
+- Store it in guide_path
+- Print the path
 
 #### Hint 1
 
-Create the base path first.
+Represent the file location using a Path object.
 
 #### Hint 2
 
-Path objects can be combined.
+Import Path.
 
 #### Hint 3
 
-Look for the `/` operator.
+```python
+Path("guides/getting-started.md")
+```
+
+#### Why This Exercise Exists
+
+Reinforces the core capability through repetition.
+
+---
+
+## **Apply**
+
+### PATHLIB-CP-06
+
+#### Scenario
+
+You are writing a script that works inside a project directory.
+
+The project folder is:
+
+```
+my-project
+```
+
+Inside it is a documentation file:
+
+```
+README.md
+```
+
+You want to create the file path by combining the project directory and file name.
+
+#### Objective
+
+Create:
+
+```
+my-project/README.md
+```
+
+using multiple Path components.
+
+Store the result in readme_path.
+
+Print the path.
+
+#### Success Criteria
+
+Your program should:
+
+- Create a Path object for the project directory
+- Build the final file path
+- Print the result
+
+#### Hint 1
+
+A Path object can be combined with other path parts.
+
+#### Hint 2
+
+Look for an operator that joins paths together.
+
+#### Hint 3
+
+```
+project_dir / "README.md"
+```
+
+#### Why This Exercise Exists
+
+Introduces path composition.
+
+---
+
+### PATHLIB-CP-07
+
+#### Scenario
+
+You keep your notes inside:
+
+```
+notes/
+```
+
+Today's note is:
+
+```
+meeting.txt
+```
+
+Rather than writing the full path manually, you decide to build it from smaller pieces.
+
+#### Objective
+
+Create:
+
+```
+notes/meeting.txt
+```
+
+using the `/` operator.
+
+Store the result in note_path.
+
+Print the path.
+
+#### Success Criteria
+
+Your program should:
+
+- Create a directory path
+- Append a filename
+- Print the final path
+
+#### Hint 1
+
+Create the folder path first.
+
+#### Hint 2
+
+Use / to add another path component.
+
+#### Hint 3
+
+```
+notes_dir / "meeting.txt"
+```
+
+#### Why This Exercise Exists
+
+Reinforces the composition concept.
+
+---
+
+
 
 ---
 
