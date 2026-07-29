@@ -189,19 +189,33 @@ Your program should:
 - Store it in downloads_path
 - Print the path
 
-#### _Hint 1_
+#### Need a Hint?
 
-Paths can represent folders as well as files.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    Paths can represent folders as well as files.
 
-You still use the Path class.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    You still use the Path class.
 
-```python
-Path("Downloads")
-```
+??? tip "Almost There"
+
+    ```python
+    Path("Downloads")
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    downloads_path = Path("Downloads")
+
+    print(downloads_path)
+    ```
 
 #### Why This Exercise Exists
 
@@ -251,19 +265,33 @@ Your program should:
 - Store it in config_path
 - Print the path
 
-#### _Hint 1_
+#### Need a Hint?
 
-A path can contain multiple nested directories.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    A path can contain multiple nested directories.
 
-Pass the full location to Path.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Pass the full location to `Path`.
 
-```
-Path("projects/python/backups/config.json")
-```
+??? tip "Almost There"
+
+    ```python
+    Path("projects/python/backups/config.json")
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    config_path = Path("projects/python/backups/config.json")
+
+    print(config_path)
+    ```
 
 #### Why This Exercise Exists
 
@@ -303,19 +331,33 @@ Your program should:
 - Store it in guide_path
 - Print the path
 
-#### Hint 1
+#### Need a Hint?
 
-Represent the file location using a Path object.
+??? tip "Small Hint"
 
-#### Hint 2
+    Represent the file location using a Path object.
 
-Import Path.
+??? tip "Stronger Hint"
 
-#### Hint 3
+    Import `Path`.
 
-```python
-Path("guides/getting-started.md")
-```
+??? tip "Almost There"
+
+    ```python
+    Path("guides/getting-started.md")
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    guide_path = Path("guides/getting-started.md")
+
+    print(guide_path)
+    ```
 
 #### Why This Exercise Exists
 
@@ -367,19 +409,35 @@ Your program should:
 - Build the final file path
 - Print the result
 
-#### _Hint 1_
+#### Need a Hint?
 
-A Path object can be combined with other path parts.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    A Path object can be combined with other path parts.
 
-Look for an operator that joins paths together.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Look for an operator that joins paths together.
 
-```
-project_dir / "README.md"
-```
+??? tip "Almost There"
+
+    ```python
+    project_dir / "README.md"
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    project_dir = Path("my-project")
+
+    readme_path = project_dir / "README.md"
+
+    print(readme_path)
+    ```
 
 #### Why This Exercise Exists
 
@@ -427,19 +485,35 @@ Your program should:
 - Append a filename
 - Print the final path
 
-#### _Hint 1_
+#### Need a Hint?
 
-Create the folder path first.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    Create the folder path first.
 
-Use / to add another path component.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Use `/` to add another path component.
 
-```
-notes_dir / "meeting.txt"
-```
+??? tip "Almost There"
+
+    ```python
+    notes_dir / "meeting.txt"
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    notes_dir = Path("notes")
+
+    note_path = notes_dir / "meeting.txt"
+
+    print(note_path)
+    ```
 
 #### Why This Exercise Exists
 
@@ -491,19 +565,37 @@ Your program should:
 - Build the path dynamically
 - Print the path
 
-#### _Hint 1_
+#### Need a Hint?
 
-Variables can be combined with Path objects.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    Variables can be combined with Path objects.
 
-The / operator works with strings.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    The `/` operator works with strings.
 
-```
-docs_dir / page_name
-```
+??? tip "Almost There"
+
+    ```python
+    docs_dir / page_name
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    docs_dir = Path("docs")
+
+    page_name = "installation.md"
+
+    page_path = docs_dir / page_name
+
+    print(page_path)
+    ```
 
 #### Why This Exercise Exists
 
@@ -555,19 +647,35 @@ Your program should:
 - Add the year folder
 - Print the final path
 
-#### _Hint 1_
+#### Need a Hint?
 
-Each folder can be added separately.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    Each folder can be added separately.
 
-Use / more than once if needed.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Use `/` more than once if needed.
 
-```
-Path("backups") / year
-```
+??? tip "Almost There"
+
+    ```python
+    Path("backups") / year
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    year = "2026"
+
+    backup_dir = Path("backups") / year
+
+    print(backup_dir)
+    ```
 
 #### Why This Exercise Exists
 
@@ -611,19 +719,38 @@ Your program should:
 - Use the / operator
 - Print the final result
 
-#### _Hint 1_
+#### Need a Hint?
 
-Each folder can be its own path component.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    Each folder can be its own path component.
 
-Chain multiple / operations.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Chain multiple `/` operations.
 
-```
-Path("projects") / "demo" / "config" / "settings.json"
-```
+??? tip "Almost There"
+
+    ```python
+    Path("projects") / "demo" / "config" / "settings.json"
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    settings_path = (
+        Path("projects")
+        / "demo"
+        / "config"
+        / "settings.json"
+    )
+
+    print(settings_path)
+    ```
 
 #### Why This Exercise Exists
 
@@ -671,19 +798,33 @@ Your program should:
 - Build the rest of the path using /
 - Print the final path
 
-#### _Hint 1_
+#### Need a Hint?
 
-pathlib can provide the current directory.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    pathlib can provide the current directory.
 
-Look for a method on Path related to the current working directory.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Look for a method on `Path` related to the current working directory.
 
-```
-Path.cwd()
-```
+??? tip "Almost There"
+
+    ```python
+    Path.cwd()
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    log_path = Path.cwd() / "logs" / "app.log"
+
+    print(log_path)
+    ```
 
 #### Why This Exercise Exists
 
@@ -727,19 +868,33 @@ Your program should:
 - Build the notes path
 - Print the result
 
-#### _Hint 1_
+#### Need a Hint?
 
-pathlib can locate a user's home directory.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    pathlib can locate a user's home directory.
 
-Look for a method named home.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Look for a method named `home`.
 
-```
-Path.home()
-```
+??? tip "Almost There"
+
+    ```python
+    Path.home()
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    note_path = Path.home() / "notes" / "today.md"
+
+    print(note_path)
+    ```
 
 #### Why This Exercise Exists
 
@@ -787,19 +942,35 @@ Your program should:
 - Use backup_name
 - Build the final path dynamically
 
-#### _Hint 1_
+#### Need a Hint?
 
-Start with the current directory.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    Start with the current directory.
 
-Add each path component separately.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Add each path component separately.
 
-```
-Path.cwd() / "backups" / backup_name
-```
+??? tip "Almost There"
+
+    ```python
+    Path.cwd() / "backups" / backup_name
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    backup_name = "photos"
+
+    backup_path = Path.cwd() / "backups" / backup_name
+
+    print(backup_path)
+    ```
 
 #### Why This Exercise Exists
 
@@ -901,19 +1072,33 @@ Your program should:
 - Build a nested path
 - Print the final result
 
-#### _Hint 1_
+#### Need a Hint?
 
-Start with the user's home directory.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    Start with the user's home directory.
 
-Add each folder separately.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Add each folder separately.
 
-```
-Path.home() / ".config" / "myapp" / "settings.json"
-```
+??? tip "Almost There"
+
+    ```python
+    Path.home() / ".config" / "myapp" / "settings.json"
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    settings_path = Path.home() / ".config" / "myapp" / "settings.json"
+
+    print(settings_path)
+    ```
 
 #### Why This Exercise Exists
 
@@ -967,19 +1152,39 @@ Your program should:
 - Build paths dynamically
 - Print each path
 
-#### _Hint 1_
+#### Need a Hint?
 
-Each topic becomes part of a filename.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    Each topic becomes part of a filename.
 
-Use a loop to process every topic.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Use a loop to process every topic.
 
-```python
-Path("notes") / f"{topic}.md"
-```
+??? tip "Almost There"
+
+    ```python
+    Path("notes") / f"{topic}.md"
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    topics = [
+        "python",
+        "pathlib",
+        "automation"
+    ]
+
+    for topic in topics:
+        note_path = Path("notes") / f"{topic}.md"
+        print(note_path)
+    ```
 
 #### Why This Exercise Exists
 
@@ -1027,19 +1232,39 @@ Your program should:
 - Build directory paths dynamically
 - Print every path
 
-#### _Hint 1_
+#### Need a Hint?
 
-Each year becomes a directory name.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    Each year becomes a directory name.
 
-Combine the base directory with each year.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Combine the base directory with each year.
 
-```python
-Path("backups") / year
-```
+??? tip "Almost There"
+
+    ```python
+    Path("backups") / year
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    years = [
+        "2024",
+        "2025",
+        "2026"
+    ]
+
+    for year in years:
+        backup_dir = Path("backups") / year
+        print(backup_dir)
+    ```
 
 #### Why This Exercise Exists
 
@@ -1089,19 +1314,39 @@ Your program should:
 - Create a Path object for each page
 - Print each generated path
 
-#### _Hint 1_
+#### Need a Hint?
 
-Each page is already a complete filename.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    Each page is already a complete filename.
 
-Combine a shared directory with each page.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Combine a shared directory with each page.
 
-```python
-Path("docs") / page
-```
+??? tip "Almost There"
+
+    ```python
+    Path("docs") / page
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    pages = [
+        "index.md",
+        "installation.md",
+        "configuration.md"
+    ]
+
+    for page in pages:
+        page_path = Path("docs") / page
+        print(page_path)
+    ```
 
 #### Why This Exercise Exists
 
@@ -1148,19 +1393,41 @@ Your program should:
 - Generate every path combination
 - Print all generated paths
 
-#### _Hint 1_
+#### Need a Hint?
 
-You may need nested loops.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    You may need two loops.
 
-Build the path one component at a time.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Build the path one component at a time.
 
-```python
-Path("photos") / year / photo
-```
+??? tip "Almost There"
+
+    ```python
+    Path("photos") / year / photo
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    years = ["2024", "2025"]
+
+    photos = [
+        "vacation.jpg",
+        "birthday.jpg"
+    ]
+
+    for year in years:
+        for photo in photos:
+            photo_path = Path("photos") / year / photo
+            print(photo_path)
+    ```
 
 #### Why This Exercise Exists
 
@@ -1210,19 +1477,41 @@ Your program should:
 - Reuse the project name
 - Generate all required paths
 
-#### _Hint 1_
+#### Need a Hint?
 
-The project name becomes the root directory.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    The project name becomes the root directory.
 
-Loop through the required directories.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Loop through the required directories.
 
-```python
-Path(project_name) / directory
-```
+??? tip "Almost There"
+
+    ```python
+    Path(project_name) / directory
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    project_name = "my_app"
+
+    directories = [
+        "src",
+        "tests",
+        "docs"
+    ]
+
+    for directory in directories:
+        project_path = Path(project_name) / directory
+        print(project_path)
+    ```
 
 #### Why This Exercise Exists
 
