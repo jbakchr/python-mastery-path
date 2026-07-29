@@ -121,19 +121,33 @@ Your program should:
 - Store it in a variable named `path`
 - Print the path
 
-#### _Hint 1_
+#### Need a Hint?
 
-The location should become a Path object.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    The location should become a Path object.
 
-Import Path from pathlib.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Import Path from pathlib.
 
-```python
-Path("docs/README.md")
-```
+??? tip "Almost There"
+
+    ```python
+    Path("docs/README.md")
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    path = Path("docs/README.md")
+
+    print(path)
+    ```
 
 #### Why This Exercise Exists
 
