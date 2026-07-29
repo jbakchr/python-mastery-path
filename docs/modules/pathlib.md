@@ -29,7 +29,7 @@ Exercises are grouped by capability and mastery level.
 
 Learn how to create and combine `Path` objects.
 
-➡️ [Open Creating Paths Exercises](./pathlib/creating-paths.md) how to examine files and directories.
+➡️ [Open Creating Paths Exercises](./pathlib/creating-paths.md).
 
 ### Inspecting Paths
 
@@ -39,7 +39,9 @@ Learn how to create and combine `Path` objects.
 
 Learn how to access file contents.
 
-🚧 Coming soon
+➡️ [Open Reading Files Exercises](./pathlib/reading-files.md).
+
+🚧 Work In Progress
 
 ### Writing Files
 
