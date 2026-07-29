@@ -49,21 +49,41 @@ Your program should:
 - Store it in a variable named `path`
 - Print the path
 
-#### _Hint 1_
+#### Need a Hint?
 
-The pathlib module provides a `Path` class.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    The pathlib module provides a `Path` class.
 
-Import `Path` from `pathlib`.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Import `Path` from `pathlib`.
 
-Create a Path object using the string:
+??? tip "Almost There"
 
-```python
-"notes/todo.txt"
-```
+    ```python
+    Path("notes/todo.txt")
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    path = Path("notes/todo.txt")
+
+    print(path)
+    ```
+
+#### Why This Exercise Exists
+
+This is the first and most fundamental pathlib capability.
+
+Before Python can work with a file or directory, your program needs a way to represent its location.
+
+Path objects provide that representation and serve as the foundation for everything else you will do with pathlib.
 
 ---
 

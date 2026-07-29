@@ -8,6 +8,13 @@ repo_url: https://github.com/jbakchr/python-mastery-path
 theme:
   name: material
 
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
 nav:
   - Home: index.md
 
@@ -26,11 +33,6 @@ nav:
 
   - Real-World Projects:
       - Backup Tool: real-world-projects/backup-tool.md
-
-markdown_extensions:
-  - admonition
-  - toc:
-      permalink: true
 
 plugins:
   - search
