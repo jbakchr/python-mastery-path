@@ -15,7 +15,17 @@ By completing these exercises you will learn how to:
 
 ## **Discover**
 
-### PATHLIB-CP-01
+Learn the fundamental capability.
+
+These exercises introduce the core ideas behind creating paths with pathlib.
+
+_**Goal:**_
+
+👉 Learn the capability.
+
+---
+
+### **PATHLIB-CP-01**
 
 #### Scenario
 
@@ -87,7 +97,7 @@ Path objects provide that representation and serve as the foundation for everyth
 
 ---
 
-### PATHLIB-CP-02
+### **PATHLIB-CP-02**
 
 #### Scenario
 
@@ -155,7 +165,7 @@ Introduces another common real-world file location without adding new concepts.
 
 ---
 
-### PATHLIB-CP-03
+### **PATHLIB-CP-03**
 
 #### Scenario
 
@@ -231,7 +241,7 @@ which is an important mental model.
 
 ---
 
-### PATHLIB-CP-04
+### **PATHLIB-CP-04**
 
 #### Scenario
 
@@ -297,7 +307,9 @@ Your program should:
 
 Introduces deeper directory structures without introducing any new API.
 
-### PATHLIB-CP-05
+---
+
+### **PATHLIB-CP-05**
 
 #### Scenario
 
@@ -367,7 +379,15 @@ Reinforces the core capability through repetition.
 
 ## **Apply**
 
-### PATHLIB-CP-06
+Use the capability in realistic situations.
+
+These exercises reinforce path creation through practical filesystem scenarios.
+
+_Goal:_
+
+👉 Use the capability.
+
+### **PATHLIB-CP-06**
 
 #### Scenario
 
@@ -445,7 +465,7 @@ Introduces path composition.
 
 ---
 
-### PATHLIB-CP-07
+### **PATHLIB-CP-07**
 
 #### Scenario
 
@@ -521,7 +541,7 @@ Reinforces the composition concept.
 
 ---
 
-### PATHLIB-CP-08
+### **PATHLIB-CP-08**
 
 #### Scenario
 
@@ -605,7 +625,7 @@ This feels much closer to real software.
 
 ---
 
-### PATHLIB-CP-09
+### **PATHLIB-CP-09**
 
 #### Scenario
 
@@ -683,7 +703,7 @@ Shows that directories can be built dynamically just like files.
 
 ---
 
-### PATHLIB-CP-10
+### **PATHLIB-CP-10**
 
 #### Scenario
 
@@ -758,9 +778,17 @@ Demonstrates how larger paths can remain readable and maintainable.
 
 ---
 
-## Compose
+## **Compose**
 
-### PATHLIB-CP-11
+Combine multiple techniques.
+
+These exercises bring together path creation, variables, and dynamic path building to solve larger problems.
+
+_Goal:_
+
+👉 Combine capabilities.
+
+### **PATHLIB-CP-11**
 
 #### Scenario
 
@@ -832,7 +860,7 @@ Introduces one of the most useful sources of paths in real programs.
 
 ---
 
-### PATHLIB-CP-12
+### **PATHLIB-CP-12**
 
 #### Scenario
 
@@ -902,7 +930,7 @@ Introduces another extremely common starting point.
 
 ---
 
-### PATHLIB-CP-13
+### **PATHLIB-CP-13**
 
 #### Scenario
 
@@ -978,7 +1006,7 @@ Combines dynamic values with a runtime-generated base path.
 
 ---
 
-### PATHLIB-CP-14
+### **PATHLIB-CP-14**
 
 #### Scenario
 
@@ -1018,19 +1046,36 @@ Your program should:
 - Use the provided filename variable
 - Build the complete path
 
-#### _Hint 1_
+#### Need a Hint?
 
-The current directory becomes the base path.
+??? tip "Small Hint"
 
-#### _Hint 2_
+    The current directory becomes the base path.
 
-Combine multiple components using /.
+??? tip "Stronger Hint"
 
-#### _Hint 3_
+    Combine multiple components using /.
 
-```
-Path.cwd() / "docs" / page_name
-```
+??? tip "Almost There"
+
+    ```python
+    Path.cwd() / "docs" / page_name
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    page_name = "installation.md"
+    
+    page_path = Path.cwd() / "docs" / page_name
+
+    print(page_path)
+    ```
+
 
 #### Why This Exercise Exists
 
@@ -1038,7 +1083,7 @@ Very similar to what static site generators and documentation tools do.
 
 ---
 
-### PATHLIB-CP-15
+### **PATHLIB-CP-15**
 
 #### Scenario
 
@@ -1106,9 +1151,17 @@ Shows how multiple path-building techniques combine in a realistic application.
 
 ---
 
-## Automate
+## **Automate**
 
-### PATHLIB-CP-16
+Create paths at scale.
+
+These exercises focus on generating paths automatically using loops and data structures.
+
+_Goal:_
+
+👉 Automate solutions.
+
+### **PATHLIB-CP-16**
 
 ### Scenario
 
@@ -1192,7 +1245,7 @@ Introduces automated path generation.
 
 ---
 
-### PATHLIB-CP-17
+### **PATHLIB-CP-17**
 
 #### Scenario
 
@@ -1272,7 +1325,7 @@ Shows that path generation applies equally to files and directories.
 
 ---
 
-### PATHLIB-CP-18
+### **PATHLIB-CP-18**
 
 #### Scenario
 
@@ -1354,7 +1407,7 @@ Introduces the concept of a reusable base path.
 
 ---
 
-### PATHLIB-CP-19
+### **PATHLIB-CP-19**
 
 #### Scenario
 
@@ -1435,7 +1488,7 @@ Introduces multi-level automated path generation.
 
 ---
 
-### PATHLIB-CP-20
+### **PATHLIB-CP-20**
 
 #### Scenario
 
