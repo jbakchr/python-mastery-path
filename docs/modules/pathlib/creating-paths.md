@@ -1,6 +1,6 @@
 # pathlib - Creating Paths
 
-## Overview
+## **Overview**
 
 Before Python can work with files and directories, it needs a way to represent their locations.
 
@@ -24,7 +24,7 @@ By completing these exercises, you will learn how to:
 
 ---
 
-## Learning Progression
+## **Learning Progression**
 
 The exercises in this section are organized into four stages:
 
@@ -39,54 +39,6 @@ Automate
 ```
 
 Each stage builds on the previous one, gradually moving from understanding how paths are created to using path creation as part of practical automation tasks.
-
----
-
-### Discover
-
-Learn the fundamental capability.
-
-These exercises introduce the core ideas behind creating `Path` objects and representing filesystem locations.
-
-Goal:
-
-👉 Learn the capability.
-
----
-
-### Apply
-
-Use the capability in realistic situations.
-
-These exercises reinforce path creation through practical filesystem scenarios and introduce path composition.
-
-Goal:
-
-👉 Use the capability.
-
----
-
-### Compose
-
-Combine multiple path-building techniques.
-
-These exercises bring together concepts such as variables, current working directories, home directories, and path composition.
-
-Goal:
-
-👉 Combine capabilities.
-
----
-
-### Automate
-
-Create paths at scale.
-
-These exercises focus on generating many paths automatically using loops, variables, and collections of data.
-
-Goal:
-
-👉 Automate solutions.
 
 ---
 
