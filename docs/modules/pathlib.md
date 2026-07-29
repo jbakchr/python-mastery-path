@@ -31,7 +31,9 @@ Learn how to create and combine `Path` objects.
 
 ➡️ [Open Creating Paths Exercises](./pathlib/creating-paths.md) how to examine files and directories.
 
-🚧 Coming soon
+### Inspecting Paths
+
+➡️ [Open Inspecting Paths Exercises](./pathlib/inspecting-paths.md).
 
 ### Reading Files
 
