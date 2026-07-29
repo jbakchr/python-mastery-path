@@ -887,31 +887,309 @@ Shows how multiple path-building techniques combine in a realistic application.
 
 ---
 
-# Automate
+## Automate
 
-## PATHLIB-CP-06
+### PATHLIB-CP-16
 
-### Objective
+### Scenario
 
-Create a small script that prints the following paths:
+You are building a note-taking application.
 
-```text
-notes/
-projects/
-downloads/
-archive/
+A user wants note files for several topics:
+
+```python
+topics = [
+    "python",
+    "pathlib",
+    "automation"
+]
 ```
 
-using Path objects rather than plain strings.
+All notes should be stored inside:
 
-### Hint 1
+```
+notes/
+```
 
-Create multiple Path objects.
+Each note should have a .md extension.
 
-### Hint 2
+Objective
 
-Store them in a list.
+Create and print the following paths:
 
-### Hint 3
+```
+notes/python.md
+notes/pathlib.md
+notes/automation.md
+```
 
-Loop through the list and print each path.
+Generate them using a loop.
+
+#### Success Criteria
+
+Your program should:
+
+- Use the provided list
+- Build paths dynamically
+- Print each path
+
+#### _Hint 1_
+
+Each topic becomes part of a filename.
+
+#### _Hint 2_
+
+Use a loop to process every topic.
+
+#### _Hint 3_
+
+```python
+Path("notes") / f"{topic}.md"
+```
+
+#### Why This Exercise Exists
+
+Introduces automated path generation.
+
+---
+
+### PATHLIB-CP-17
+
+#### Scenario
+
+You are creating a backup utility.
+
+Backup folders should be created for multiple years:
+
+```python
+years = [
+    "2024",
+    "2025",
+    "2026"
+]
+```
+
+All backups live inside:
+
+```
+backups/
+```
+
+#### Objective
+
+Create and print paths representing:
+
+```
+backups/2024
+backups/2025
+backups/2026
+```
+
+#### Success Criteria
+
+Your program should:
+
+- Use the supplied list
+- Build directory paths dynamically
+- Print every path
+
+#### _Hint 1_
+
+Each year becomes a directory name.
+
+#### _Hint 2_
+
+Combine the base directory with each year.
+
+#### _Hint 3_
+
+```python
+Path("backups") / year
+```
+
+#### Why This Exercise Exists
+
+Shows that path generation applies equally to files and directories.
+
+---
+
+### PATHLIB-CP-18
+
+#### Scenario
+
+You are building a documentation generator.
+
+The project contains multiple pages:
+
+```python
+pages = [
+    "index.md",
+    "installation.md",
+    "configuration.md"
+]
+```
+
+All documentation files belong inside:
+
+```
+docs/
+```
+
+#### Objective
+
+Create and print the path for every page.
+
+Expected output:
+
+```
+docs/index.md
+docs/installation.md
+docs/configuration.md
+```
+
+#### Success Criteria
+
+Your program should:
+
+- Loop through every page
+- Create a Path object for each page
+- Print each generated path
+
+#### _Hint 1_
+
+Each page is already a complete filename.
+
+#### _Hint 2_
+
+Combine a shared directory with each page.
+
+#### _Hint 3_
+
+```python
+Path("docs") / page
+```
+
+#### Why This Exercise Exists
+
+Introduces the concept of a reusable base path.
+
+---
+
+### PATHLIB-CP-19
+
+#### Scenario
+
+You are building a photo organizer.
+
+Photos should be stored inside folders named after their year.
+
+You have:
+
+```python
+years = ["2024", "2025"]
+photos = [
+    "vacation.jpg",
+    "birthday.jpg"
+]
+```
+
+For every year and every photo, generate a path.
+
+#### Objective
+
+Create and print paths such as:
+
+```
+photos/2024/vacation.jpg
+photos/2024/birthday.jpg
+photos/2025/vacation.jpg
+photos/2025/birthday.jpg
+```
+
+#### Success Criteria
+
+Your program should:
+
+- Use both provided lists
+- Generate every path combination
+- Print all generated paths
+
+#### _Hint 1_
+
+You may need nested loops.
+
+#### _Hint 2_
+
+Build the path one component at a time.
+
+#### _Hint 3_
+
+```python
+Path("photos") / year / photo
+```
+
+#### Why This Exercise Exists
+
+Introduces multi-level automated path generation.
+
+---
+
+### PATHLIB-CP-20
+
+#### Scenario
+
+You are building a simple project scaffolding tool.
+
+New projects should contain:
+
+```
+src/
+tests/
+docs/
+```
+
+A project name is provided:
+
+```python
+project_name = "my_app"
+```
+
+Your script should generate the paths that would exist inside the project.
+
+#### Objective
+
+Create and print:
+
+```
+my_app/src
+my_app/tests
+my_app/docs
+```
+
+using the provided project name and a list of directory names.
+
+#### Success Criteria
+
+Your program should:
+
+- Build paths dynamically
+- Reuse the project name
+- Generate all required paths
+
+#### _Hint 1_
+
+The project name becomes the root directory.
+
+#### _Hint 2_
+
+Loop through the required directories.
+
+#### _Hint 3_
+
+```python
+Path(project_name) / directory
+```
+
+#### Why This Exercise Exists
+
+This is the first exercise that feels like a genuine automation task rather than merely a learning exercise.
