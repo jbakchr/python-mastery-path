@@ -16,37 +16,48 @@ For this reason, every exercise begins with a realistic scenario rather than a p
 
 ## Standard Exercise Template
 
-```markdown
-## EXERCISE-ID
+### EXERCISE-ID
 
-### Scenario
+#### Scenario
 
 A realistic problem or situation.
 
-### Objective
+#### Objective
 
 The concrete task.
 
-### Success Criteria
+#### Success Criteria
 
 What must be achieved.
 
-### Hint 1
+#### Hints
 
-Very vague.
+??? tip "Small Hint"
 
-### Hint 2
+    A gentle nudge that helps learners think in the right direction
+    without revealing the solution.
 
-More specific.
+??? tip "Stronger Hint"
 
-### Hint 3
+    More specific guidance that points toward the relevant capability.
 
-Almost enough to solve the exercise.
+??? tip "Almost There"
 
-### Solution
+    A hint that nearly reveals the solution while still requiring
+    some thought from the learner.
 
-(Optional - hidden later)
-```
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    # Example solution
+    ```
+
+#### Why This Exercise Exists
+
+Explain why this capability matters, when it would be useful,
+and how it connects to real-world Python development.
 
 ---
 
@@ -58,7 +69,9 @@ Almost enough to solve the exercise.
 
 You keep personal notes in a text file located at:
 
+```text
 notes/todo.txt
+```
 
 Before Python can work with this file, your program needs a way to represent its location on disk.
 
@@ -68,7 +81,9 @@ This is one of the most common uses of pathlib.
 
 Create a Path object representing:
 
+```text
 notes/todo.txt
+```
 
 Store it in a variable named `path`.
 
@@ -82,21 +97,43 @@ Your program should:
 - Store it in a variable named `path`
 - Print the path
 
-#### Hint 1
+#### Need a Hint?
 
-The pathlib module provides a `Path` class.
+??? tip "Small Hint"
 
-#### Hint 2
+    The pathlib module provides a `Path` class.
 
-Import `Path` from `pathlib`.
+??? tip "Stronger Hint"
 
-#### Hint 3
+    Import `Path` from `pathlib`.
 
-Create a Path object using:
+??? tip "Almost There"
 
-```python
-Path("notes/todo.txt")
-```
+    Create a Path object using the file location:
+
+    ```text
+    notes/todo.txt
+    ```
+
+#### Solution
+
+??? success "Show Solution"
+
+    ```python
+    from pathlib import Path
+
+    path = Path("notes/todo.txt")
+
+    print(path)
+    ```
+
+#### Why This Exercise Exists
+
+This is the first and most fundamental pathlib capability.
+
+Before Python can work with a file or directory, your program needs a way to represent its location.
+
+Path objects provide that representation and serve as the foundation for everything else you will do with pathlib.
 
 ---
 
@@ -129,3 +166,22 @@ Task
 Task
 ↓
 Task
+
+---
+
+## Hint Philosophy
+
+Hints should be progressive.
+
+Small Hint
+    ↓
+Stronger Hint
+    ↓
+Almost There
+    ↓
+Solution
+
+The goal is to encourage learners to think and experiment before
+receiving increasingly specific guidance.
+
+Hints should guide discovery rather than immediately reveal answers.
