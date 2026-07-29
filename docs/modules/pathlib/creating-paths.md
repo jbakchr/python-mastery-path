@@ -597,47 +597,293 @@ Demonstrates how larger paths can remain readable and maintainable.
 
 ---
 
-# Compose
+## Compose
 
-## PATHLIB-CP-05
+### PATHLIB-CP-11
 
-### Objective
+#### Scenario
 
-Write a function:
+You are building a project from inside its root directory.
 
-```python
-def build_project_path(project_name):
+Your script should work no matter where the project is located on a user's computer.
+
+The current working directory should be used as the starting point.
+
+A log file will live in:
+
+```
+logs/app.log
 ```
 
-that returns:
+inside the project.
 
-```text
-projects/<project_name>
+#### Objective
+
+Create a path representing:
+
+```
+[current directory]/logs/app.log
 ```
 
-Examples:
+Store the result in log_path.
 
-```python
-build_project_path("lx")
+Print the path.
+
+#### Success Criteria
+
+Your program should:
+
+- Obtain the current working directory
+- Build the rest of the path using /
+- Print the final path
+
+#### _Hint 1_
+
+pathlib can provide the current directory.
+
+#### _Hint 2_
+
+Look for a method on Path related to the current working directory.
+
+#### _Hint 3_
+
+```
+Path.cwd()
 ```
 
-returns:
+#### Why This Exercise Exists
 
-```text
-projects/lx
+Introduces one of the most useful sources of paths in real programs.
+
+---
+
+### PATHLIB-CP-12
+
+#### Scenario
+
+You are creating a personal note-taking application.
+
+Each user should store notes inside their own home directory.
+
+The note file should be:
+
+```
+notes/today.md
 ```
 
-### Hint 1
+inside the user's home folder.
 
-Accept a string parameter.
+#### Objective
 
-### Hint 2
+Create a path representing:
 
-Create a Path object.
+```
+[home directory]/notes/today.md
+```
 
-### Hint 3
+Store the result in note_path.
 
-Combine path segments.
+Print the path.
+
+#### Success Criteria
+
+Your program should:
+
+- Obtain the user's home directory
+- Build the notes path
+- Print the result
+
+#### _Hint 1_
+
+pathlib can locate a user's home directory.
+
+#### _Hint 2_
+
+Look for a method named home.
+
+#### _Hint 3_
+
+```
+Path.home()
+```
+
+#### Why This Exercise Exists
+
+Introduces another extremely common starting point.
+
+---
+
+### PATHLIB-CP-13
+
+#### Scenario
+
+You are building a backup utility.
+
+The user chooses a backup name:
+
+```
+backup_name = "photos"
+```
+
+All backups live inside:
+
+```
+backups/
+```
+
+under the current working directory.
+
+#### Objective
+
+Create a path representing:
+
+```
+[current directory]/backups/photos
+```
+
+Store it in backup_path.
+
+Print the result.
+
+#### Success Criteria
+
+Your program should:
+
+- Use Path.cwd()
+- Use backup_name
+- Build the final path dynamically
+
+#### _Hint 1_
+
+Start with the current directory.
+
+#### _Hint 2_
+
+Add each path component separately.
+
+#### _Hint 3_
+
+```
+Path.cwd() / "backups" / backup_name
+```
+
+#### Why This Exercise Exists
+
+Combines dynamic values with a runtime-generated base path.
+
+---
+
+### PATHLIB-CP-14
+
+#### Scenario
+
+You are writing a documentation generator.
+
+The project root is the current working directory.
+
+Documentation files are stored in:
+
+```
+docs/
+```
+
+The page name is provided as:
+
+```
+page_name = "installation.md"
+```
+
+#### Objective
+
+Create a path representing:
+
+```
+[current directory]/docs/installation.md
+```
+
+Store the result in page_path.
+
+Print the path.
+
+#### Success Criteria
+
+Your program should:
+
+- Get the current directory
+- Use the provided filename variable
+- Build the complete path
+
+#### _Hint 1_
+
+The current directory becomes the base path.
+
+#### _Hint 2_
+
+Combine multiple components using /.
+
+#### _Hint 3_
+
+```
+Path.cwd() / "docs" / page_name
+```
+
+#### Why This Exercise Exists
+
+Very similar to what static site generators and documentation tools do.
+
+---
+
+### PATHLIB-CP-15
+
+#### Scenario
+
+You are creating a script that stores application settings.
+
+Settings belong in:
+
+```
+.config/myapp/settings.json
+```
+
+inside the user's home directory.
+
+#### Objective
+
+Create a path representing:
+
+```
+[home directory]/.config/myapp/settings.json
+```
+
+Store the result in settings_path.
+
+Print the path.
+
+#### Success Criteria
+
+Your program should:
+
+- Obtain the home directory
+- Build a nested path
+- Print the final result
+
+#### _Hint 1_
+
+Start with the user's home directory.
+
+#### _Hint 2_
+
+Add each folder separately.
+
+#### _Hint 3_
+
+```
+Path.home() / ".config" / "myapp" / "settings.json"
+```
+
+#### Why This Exercise Exists
+
+Shows how multiple path-building techniques combine in a realistic application.
 
 ---
 
