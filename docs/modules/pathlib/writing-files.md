@@ -1,4 +1,4 @@
-# pathlib - Inspecting Paths
+# pathlib - Writing Files
 
 ## **Overview**
 
