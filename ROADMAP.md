@@ -8,6 +8,8 @@ This roadmap exists to help guide future development and prioritize the most val
 
 # Current Status
 
+## Project Foundation
+
 ✅ Project created
 
 ✅ GitHub Pages deployed
@@ -16,13 +18,59 @@ This roadmap exists to help guide future development and prioritize the most val
 
 ✅ Site structure established
 
+✅ Learning philosophy established
+
 ✅ Exercise philosophy established
 
 ✅ Exercise template established
 
-✅ First module page (pathlib)
+✅ Exercise page template established
 
-✅ First exercise capability page (Creating Paths)
+✅ Progressive hint system established
+
+✅ Hidden solution system established
+
+✅ Capability progression established
+
+```text
+Discover
+    ↓
+Apply
+    ↓
+Compose
+    ↓
+Automate
+```
+
+---
+
+## pathlib
+
+✅ Module introduction
+
+✅ Creating Paths capability page
+
+✅ Creating Paths exercises
+
+✅ Discover exercises
+
+✅ Apply exercises
+
+✅ Compose exercises
+
+✅ Automate exercises
+
+✅ Solutions added
+
+✅ Exercise explanations added
+
+Current focus:
+
+```text
+pathlib
+    ↓
+Inspecting Paths
+```
 
 ---
 
@@ -32,11 +80,11 @@ When deciding what to build next, prioritize:
 
 ```text
 Learning Value
-    ↑
+        ↑
 Content
-    ↑
+        ↑
 Exercises
-    ↑
+        ↑
 Capabilities
 ```
 
@@ -57,51 +105,78 @@ The primary value of Python Mastery Path is the learning content.
 
 Goal:
 
-Create the first complete module with enough exercises to validate the overall concept.
+Create the first complete module and validate the overall learning approach.
+
+---
 
 ## pathlib
 
 ### Creating Paths
 
-- [ ] Discover exercises
-- [ ] Apply exercises
-- [ ] Compose exercises
-- [ ] Automate exercises
+✅ Complete
 
 ### Inspecting Paths
 
-- [ ] Create capability page
-- [ ] Add exercises
+- Create capability page
+- Create Discover exercises
+- Create Apply exercises
+- Create Compose exercises
+- Create Automate exercises
+- Add solutions
 
 ### Reading Files
 
-- [ ] Create capability page
-- [ ] Add exercises
+- Create capability page
+- Create Discover exercises
+- Create Apply exercises
+- Create Compose exercises
+- Create Automate exercises
+- Add solutions
 
 ### Writing Files
 
-- [ ] Create capability page
-- [ ] Add exercises
+- Create capability page
+- Create Discover exercises
+- Create Apply exercises
+- Create Compose exercises
+- Create Automate exercises
+- Add solutions
 
 ### Finding Files
 
-- [ ] Create capability page
-- [ ] Add exercises
+- Create capability page
+- Create Discover exercises
+- Create Apply exercises
+- Create Compose exercises
+- Create Automate exercises
+- Add solutions
 
 ### Manipulating Paths
 
-- [ ] Create capability page
-- [ ] Add exercises
+- Create capability page
+- Create Discover exercises
+- Create Apply exercises
+- Create Compose exercises
+- Create Automate exercises
+- Add solutions
 
 ### Directory Operations
 
-- [ ] Create capability page
-- [ ] Add exercises
+- Create capability page
+- Create Discover exercises
+- Create Apply exercises
+- Create Compose exercises
+- Create Automate exercises
+- Add solutions
 
 ### Filesystem Automation
 
-- [ ] Create capability page
-- [ ] Add exercises
+- Create capability page
+- Create Discover exercises
+- Create Apply exercises
+- Create Compose exercises
+- Create Automate exercises
+- Add solutions
 
 ---
 
@@ -109,28 +184,31 @@ Create the first complete module with enough exercises to validate the overall c
 
 Goal:
 
-Teach practical filesystem automation.
+Learn practical filesystem automation by combining related modules.
 
-These modules naturally work together and should be developed as a group.
+---
 
 ## pathlib
 
-- [ ] Complete all capabilities
+- Complete remaining capabilities
 
 ## shutil
 
-- [ ] Module introduction
-- [ ] Capability pages
-- [ ] Discover exercises
-- [ ] Apply exercises
-- [ ] Compose exercises
-- [ ] Automate exercises
+- Module introduction
+- Capability pages
+- Discover exercises
+- Apply exercises
+- Compose exercises
+- Automate exercises
 
 ## json
 
-- [ ] Module introduction
-- [ ] Capability pages
-- [ ] Exercises
+- Module introduction
+- Capability pages
+- Discover exercises
+- Apply exercises
+- Compose exercises
+- Automate exercises
 
 ---
 
@@ -144,23 +222,27 @@ Modules:
 
 ## pickle
 
-- [ ] Module page
-- [ ] Exercises
+- Module introduction
+- Capability pages
+- Exercises
 
 ## csv
 
-- [ ] Module page
-- [ ] Exercises
+- Module introduction
+- Capability pages
+- Exercises
 
 ## collections
 
-- [ ] Module page
-- [ ] Exercises
+- Module introduction
+- Capability pages
+- Exercises
 
 ## dataclasses
 
-- [ ] Module page
-- [ ] Exercises
+- Module introduction
+- Capability pages
+- Exercises
 
 ---
 
@@ -168,34 +250,39 @@ Modules:
 
 Goal:
 
-Learn modules that frequently appear in real-world projects.
+Master modules that frequently appear in real-world projects.
 
 Modules:
 
 ## datetime
 
-- [ ] Module page
-- [ ] Exercises
+- Module introduction
+- Capability pages
+- Exercises
 
 ## re
 
-- [ ] Module page
-- [ ] Exercises
+- Module introduction
+- Capability pages
+- Exercises
 
 ## itertools
 
-- [ ] Module page
-- [ ] Exercises
+- Module introduction
+- Capability pages
+- Exercises
 
 ## functools
 
-- [ ] Module page
-- [ ] Exercises
+- Module introduction
+- Capability pages
+- Exercises
 
 ## logging
 
-- [ ] Module page
-- [ ] Exercises
+- Module introduction
+- Capability pages
+- Exercises
 
 ---
 
@@ -209,13 +296,15 @@ Modules:
 
 ## argparse
 
-- [ ] Module page
-- [ ] Exercises
+- Module introduction
+- Capability pages
+- Exercises
 
 ## subprocess
 
-- [ ] Module page
-- [ ] Exercises
+- Module introduction
+- Capability pages
+- Exercises
 
 ---
 
@@ -223,7 +312,7 @@ Modules:
 
 Goal:
 
-Combine multiple modules into useful projects.
+Combine multiple modules into useful tools.
 
 Projects:
 
@@ -236,10 +325,8 @@ Modules:
 
 Status:
 
-- [ ] Design
-- [ ] Exercises
-
----
+- Design
+- Exercises
 
 ## Markdown Analyzer
 
@@ -250,10 +337,8 @@ Modules:
 
 Status:
 
-- [ ] Design
-- [ ] Exercises
-
----
+- Design
+- Exercises
 
 ## Log Analyzer
 
@@ -265,10 +350,8 @@ Modules:
 
 Status:
 
-- [ ] Design
-- [ ] Exercises
-
----
+- Design
+- Exercises
 
 ## Repository Scanner
 
@@ -279,8 +362,8 @@ Modules:
 
 Status:
 
-- [ ] Design
-- [ ] Exercises
+- Design
+- Exercises
 
 ---
 
@@ -288,29 +371,29 @@ Status:
 
 Goal:
 
-Create realistic applications that build on all previous phases.
+Build realistic software that combines many previously learned capabilities.
 
 Projects:
 
 ## Backup Utility
 
-- [ ] Design
-- [ ] Exercises
+- Design
+- Exercises
 
 ## Personal Knowledge Base
 
-- [ ] Design
-- [ ] Exercises
+- Design
+- Exercises
 
 ## Static Site Generator
 
-- [ ] Design
-- [ ] Exercises
+- Design
+- Exercises
 
 ## Documentation Generator
 
-- [ ] Design
-- [ ] Exercises
+- Design
+- Exercises
 
 ---
 
@@ -320,23 +403,23 @@ These are intentionally lower priority.
 
 ## Gamification
 
-- [ ] Progress tracking
-- [ ] Module completion indicators
-- [ ] Exercise statistics
+- Progress tracking
+- Module completion indicators
+- Exercise statistics
 
 ## Visual Improvements
 
-- [ ] Custom styling
-- [ ] Enhanced navigation
-- [ ] Improved landing page
+- Custom styling
+- Enhanced navigation
+- Improved landing page
 
 ## Advanced Content
 
-- [ ] typing
-- [ ] sqlite3
-- [ ] asyncio
-- [ ] testing
-- [ ] packaging
+- typing
+- sqlite3
+- asyncio
+- testing
+- packaging
 
 ---
 
@@ -356,3 +439,22 @@ to solve real-world problems."
 ```
 
 The project should always prioritize practical capability building over theoretical knowledge.
+
+---
+
+# Current Priority
+
+```text
+pathlib
+    ↓
+Inspecting Paths
+```
+
+Do not rush into:
+
+- Additional modules
+- Mini projects
+- Styling improvements
+- Gamification
+
+First complete the remaining pathlib capabilities and validate that the learning progression works consistently across the entire module.
