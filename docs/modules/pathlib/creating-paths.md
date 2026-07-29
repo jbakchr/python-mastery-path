@@ -1,15 +1,92 @@
-# **pathlib - Creating Paths**
+# pathlib - Creating Paths
 
-## **Overview**
+## Overview
 
-The exercises in this section focus on creating and combining `Path` objects.
+Before Python can work with files and directories, it needs a way to represent their locations.
 
-By completing these exercises you will learn how to:
+This is the purpose of `pathlib.Path`.
 
-- Create Path objects
-- Combine paths
-- Work with relative paths
-- Work with absolute paths
+Creating paths is one of the most fundamental pathlib capabilities and serves as the foundation for everything that follows, including:
+
+- Inspecting paths
+- Reading files
+- Writing files
+- Finding files
+- Automating filesystem tasks
+
+By completing these exercises, you will learn how to:
+
+- Create `Path` objects
+- Combine path components
+- Build paths dynamically
+- Create paths from user and system locations
+- Generate paths for automation tasks
+
+---
+
+## Learning Progression
+
+The exercises in this section are organized into four stages:
+
+```text
+Discover
+    ↓
+Apply
+    ↓
+Compose
+    ↓
+Automate
+```
+
+Each stage builds on the previous one, gradually moving from understanding how paths are created to using path creation as part of practical automation tasks.
+
+---
+
+### Discover
+
+Learn the fundamental capability.
+
+These exercises introduce the core ideas behind creating `Path` objects and representing filesystem locations.
+
+Goal:
+
+👉 Learn the capability.
+
+---
+
+### Apply
+
+Use the capability in realistic situations.
+
+These exercises reinforce path creation through practical filesystem scenarios and introduce path composition.
+
+Goal:
+
+👉 Use the capability.
+
+---
+
+### Compose
+
+Combine multiple path-building techniques.
+
+These exercises bring together concepts such as variables, current working directories, home directories, and path composition.
+
+Goal:
+
+👉 Combine capabilities.
+
+---
+
+### Automate
+
+Create paths at scale.
+
+These exercises focus on generating many paths automatically using loops, variables, and collections of data.
+
+Goal:
+
+👉 Automate solutions.
 
 ---
 
@@ -1070,12 +1147,11 @@ Your program should:
     from pathlib import Path
 
     page_name = "installation.md"
-    
+
     page_path = Path.cwd() / "docs" / page_name
 
     print(page_path)
     ```
-
 
 #### Why This Exercise Exists
 
