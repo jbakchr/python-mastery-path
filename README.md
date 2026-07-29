@@ -6,8 +6,6 @@ Python Mastery Path is a structured learning path designed to help developers mo
 
 The project is primarily intended as a personal learning resource, but may also be useful to other Python developers who want a practical and structured way to deepen their Python knowledge.
 
----
-
 ## Website
 
 View the project website here:
@@ -33,13 +31,35 @@ Examples include modules such as:
 
 - pathlib
 - shutil
-- pickle
+- json
 - collections
 - itertools
 - datetime
 - sqlite3
 
 Python Mastery Path exists to help develop deep familiarity with Python concepts, modules, and real-world problem solving through practice.
+
+---
+
+## Learning Philosophy
+
+The goal is not:
+
+- Memorizing syntax
+- Completing coding challenges
+- Rushing through exercises
+- Collecting certificates
+
+The goal is:
+
+👉 Build practical Python capabilities through repetition and problem solving.
+
+Success is measured by questions such as:
+
+- Do I naturally reach for pathlib when working with files?
+- Do I remember useful parts of collections?
+- Can I solve real problems using Python modules I previously forgot existed?
+- Am I becoming more capable at building useful software?
 
 ---
 
@@ -69,7 +89,7 @@ Mini Projects
 Real-World Projects
 ```
 
-Each level builds on the skills developed in the previous level.
+Each level builds upon the knowledge gained in the previous level.
 
 ---
 
@@ -90,7 +110,7 @@ Examples:
 
 Goal:
 
-> Learn the language.
+👉 Learn the language.
 
 ---
 
@@ -117,7 +137,7 @@ Examples:
 
 Goal:
 
-> Learn the tools.
+👉 Learn the tools.
 
 ---
 
@@ -135,7 +155,7 @@ Examples:
 
 Goal:
 
-> Learn how to combine tools.
+👉 Learn how to combine tools.
 
 ---
 
@@ -153,7 +173,7 @@ Examples:
 
 Goal:
 
-> Create useful software.
+👉 Create useful software.
 
 ---
 
@@ -165,8 +185,8 @@ The goal is not merely to learn syntax.
 
 The goal is to understand:
 
-- Why a Python feature is useful
-- When a Python feature becomes useful
+- Why a Python capability is useful
+- When a Python capability becomes useful
 - How Python helps solve practical problems
 
 Rather than presenting exercises such as:
@@ -216,49 +236,99 @@ Task
 
 ---
 
-## Exercise Template
+## Exercise Structure
 
-Every exercise should follow the same structure.
+Every exercise follows a consistent structure:
 
-```markdown
-## EXERCISE-ID
-
-### Scenario
-
-A realistic problem or situation.
-
-### Objective
-
-The concrete task.
-
-### Success Criteria
-
-What must be achieved.
-
-### Hint 1
-
-Very vague.
-
-### Hint 2
-
-More specific.
-
-### Hint 3
-
-Almost enough to solve the exercise.
-
-### Solution
-
-(Optional - hidden later)
+```text
+Scenario
+    ↓
+Objective
+    ↓
+Success Criteria
+    ↓
+Hints
+    ↓
+Solution
+    ↓
+Why This Exercise Exists
 ```
 
-This consistency helps learners focus on solving problems rather than learning different exercise formats.
+This consistency allows learners to focus on solving problems rather than learning different exercise formats.
+
+### Progressive Hints
+
+Exercises provide progressive hints:
+
+```text
+Small Hint
+    ↓
+Stronger Hint
+    ↓
+Almost There
+    ↓
+Solution
+```
+
+The goal is to encourage exploration and problem solving before revealing increasingly specific guidance.
+
+Hints and solutions are hidden behind collapsible sections so learners can choose how much help they need.
+
+---
+
+## Capability Page Structure
+
+Each capability page follows the same progression:
+
+```text
+Discover
+    ↓
+Apply
+    ↓
+Compose
+    ↓
+Automate
+```
+
+### Discover
+
+Learn the fundamental capability.
+
+Goal:
+
+👉 Learn the capability.
+
+### Apply
+
+Use the capability in realistic situations.
+
+Goal:
+
+👉 Use the capability.
+
+### Compose
+
+Combine multiple techniques to solve larger problems.
+
+Goal:
+
+👉 Combine capabilities.
+
+### Automate
+
+Use the capability to solve repetitive problems.
+
+Goal:
+
+👉 Automate solutions.
+
+This progression helps learners move from understanding a capability to using it naturally within real-world automation tasks.
 
 ---
 
 ## Module Structure
 
-Each module should follow a consistent structure.
+Each module follows a consistent structure.
 
 Example:
 
@@ -275,35 +345,63 @@ pathlib
 └── Filesystem Automation
 ```
 
-Each capability should contain exercises organised into:
+Each capability is taught through the Discover → Apply → Compose → Automate progression.
+
+---
+
+## Current Progress
+
+### Project
+
+✅ GitHub Pages deployed
+
+✅ MkDocs configured
+
+✅ Exercise template created
+
+✅ Capability page template created
+
+✅ Module structure defined
+
+✅ Learning philosophy established
+
+### pathlib
+
+✅ Module introduction
+
+✅ Capability structure defined
+
+✅ Creating Paths capability completed
+
+Current focus:
 
 ```text
-Discover
+pathlib
     ↓
-Apply
-    ↓
-Compose
-    ↓
-Automate
+Inspecting Paths
 ```
 
 ---
 
 ## Project Principles
 
-When adding new content, prefer:
+When adding content, prefer:
 
 ✅ Practical scenarios
 
 ✅ Capability-based learning
 
-✅ Progressive difficulty
+✅ Progressive learning
 
 ✅ Real-world relevance
 
-✅ Multiple hints
+✅ Progressive hints
 
-✅ Standardized exercise structure
+✅ Hidden solutions
+
+✅ Consistent exercise structure
+
+✅ Consistent capability structure
 
 ✅ Clear navigation
 
@@ -315,7 +413,11 @@ Avoid:
 
 ❌ Giant pages containing hundreds of exercises
 
-❌ Teaching syntax without showing practical value
+❌ Teaching syntax without practical value
+
+❌ Feature creep
+
+❌ Overengineering
 
 ---
 
