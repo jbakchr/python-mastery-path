@@ -41,13 +41,11 @@ Learn how to access file contents.
 
 ➡️ [Open Reading Files Exercises](./pathlib/reading-files.md).
 
-🚧 Work In Progress
-
 ### Writing Files
 
 Learn how to create and modify files.
 
-🚧 Coming soon
+🚧 Work In Progress
 
 ### Finding Files
 
