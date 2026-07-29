@@ -1,6 +1,6 @@
 # Python Mastery Path – Project Context
 
-## 🧠 What this project is
+## 🧠 What This Project Is
 
 Python Mastery Path is a structured learning path for progressively mastering Python through:
 
@@ -81,14 +81,6 @@ Focus:
 
 Core Python concepts.
 
-Examples:
-
-- Strings
-- Lists
-- Dictionaries
-- Loops
-- Functions
-
 Goal:
 
 👉 Learn the language.
@@ -100,16 +92,6 @@ Goal:
 Focus:
 
 Master one Python module at a time.
-
-Examples:
-
-- pathlib
-- shutil
-- json
-- pickle
-- collections
-- datetime
-- itertools
 
 Goal:
 
@@ -123,13 +105,6 @@ Focus:
 
 Combine multiple concepts and modules.
 
-Examples:
-
-- Downloads Organizer
-- Markdown Analyzer
-- Backup Utility
-- Repository Scanner
-
 Goal:
 
 👉 Learn how to combine tools.
@@ -142,13 +117,6 @@ Focus:
 
 Build realistic software.
 
-Examples:
-
-- Static Site Generator
-- Personal Knowledge Base
-- File Synchronizer
-- Documentation Generator
-
 Goal:
 
 👉 Create useful software.
@@ -156,8 +124,6 @@ Goal:
 ---
 
 # 🧪 Exercise Philosophy
-
-One of the most important project decisions.
 
 Exercises should begin with realistic scenarios.
 
@@ -210,39 +176,73 @@ Task
 
 # 📋 Exercise Template
 
-Every exercise should follow this structure:
+Every exercise follows a standard structure:
 
-```markdown
-## EXERCISE-ID
-
-### Scenario
-
-A realistic problem or situation.
-
-### Objective
-
-The concrete task.
-
-### Success Criteria
-
-What must be achieved.
-
-### Hint 1
-
-Very vague.
-
-### Hint 2
-
-More specific.
-
-### Hint 3
-
-Almost enough to solve the exercise.
-
-### Solution
-
-(Optional - hidden later)
+```text
+Scenario
+    ↓
+Objective
+    ↓
+Success Criteria
+    ↓
+Hints
+    ↓
+Solution
+    ↓
+Why This Exercise Exists
 ```
+
+### Progressive Hints
+
+Hints are progressive:
+
+```text
+Small Hint
+    ↓
+Stronger Hint
+    ↓
+Almost There
+    ↓
+Solution
+```
+
+All hints and solutions are hidden behind collapsible sections.
+
+The goal is to encourage learners to think and experiment before receiving more specific guidance.
+
+---
+
+# 📄 Exercise Page Template
+
+Every exercise page follows the same progression:
+
+```text
+Discover
+    ↓
+Apply
+    ↓
+Compose
+    ↓
+Automate
+```
+
+### Discover
+
+Learn the capability.
+
+### Apply
+
+Use the capability.
+
+### Compose
+
+Combine capabilities.
+
+### Automate
+
+Automate solutions.
+
+The goal is to gradually move learners from understanding a capability to using it naturally in real-world situations.
 
 ---
 
@@ -265,7 +265,7 @@ pathlib
 └── Filesystem Automation
 ```
 
-Each capability contains exercises organised into:
+Each capability page follows:
 
 ```text
 Discover
@@ -279,38 +279,59 @@ Automate
 
 ---
 
-# ⚙️ Current Structure
+# ⚙️ Current Project Status
 
-Current repository structure:
-
-```text
-docs/
-├── index.md
-├── project/
-│   └── exercise-template.md
-├── topics/
-├── modules/
-├── mini-projects/
-└── real-world-projects/
-```
-
-Current module progress:
-
-```text
-pathlib
-├── introduction
-├── capabilities
-├── exercise structure
-└── creating-paths exercises
-```
-
-Site:
+## Infrastructure
 
 ✅ GitHub Pages deployed
 
 ✅ MkDocs configured
 
-✅ Basic structure established
+✅ Site structure established
+
+✅ Exercise template established
+
+✅ Exercise page template established
+
+✅ Progressive hint system established
+
+✅ Hidden solution system established
+
+✅ Capability progression established
+
+```text
+Discover
+    ↓
+Apply
+    ↓
+Compose
+    ↓
+Automate
+```
+
+---
+
+## pathlib
+
+✅ Module introduction
+
+✅ Capability overview
+
+✅ Creating Paths capability page
+
+✅ Discover exercises completed
+
+✅ Apply exercises completed
+
+✅ Compose exercises completed
+
+✅ Automate exercises completed
+
+✅ Solutions added
+
+✅ Exercise explanations added
+
+The Creating Paths capability is considered complete.
 
 ---
 
@@ -341,37 +362,49 @@ Path.rglob()
 The best exercises feel like:
 
 ```text
-I have experienced that problem before.
+I've encountered that problem before.
 ```
 
 rather than:
 
 ```text
-Here is a coding challenge.
+Here's a coding challenge.
 ```
 
 ---
 
-## 3. Modules Are A Hidden Superpower
+## 3. Consistency Matters
 
-Many developers already know Python syntax.
+Learners should never have to learn a new page structure.
 
-What they often lack is deep familiarity with:
+Exercise pages should consistently follow:
 
-- pathlib
-- shutil
-- collections
-- pickle
-- itertools
-- datetime
+```text
+Discover
+    ↓
+Apply
+    ↓
+Compose
+    ↓
+Automate
+```
 
-This project focuses heavily on mastering those capabilities.
+Exercises should consistently follow:
+
+```text
+Scenario
+Objective
+Success Criteria
+Hints
+Solution
+Why This Exercise Exists
+```
 
 ---
 
 ## 4. Content > Features
 
-The value of the site comes from:
+The value comes from:
 
 ✅ Exercises
 
@@ -397,35 +430,33 @@ NOT:
 
 Current priority:
 
-👉 Build excellent Module Exercises.
+👉 Complete the pathlib module.
 
 Specifically:
 
 ```text
-pathlib
+Inspecting Paths
 ```
 
-before expanding elsewhere.
+is the next capability to build.
 
 Do not rush into:
 
-- dozens of modules
-- mini projects
-- styling improvements
+- Additional modules
+- Mini projects
+- Styling improvements
+- Gamification
 
-First prove that one module is genuinely useful.
+First validate the learning progression across the entire pathlib module.
 
 ---
 
 # 🎯 Near-Term Focus
 
-Current focus:
-
 ## pathlib
 
-Create exercises for:
+Remaining capabilities:
 
-- Creating Paths
 - Inspecting Paths
 - Reading Files
 - Writing Files
@@ -438,23 +469,27 @@ Goal:
 
 Build a complete and enjoyable pathlib learning experience.
 
+Use the same standards established in Creating Paths.
+
 ---
 
 # 🚫 Non-Goals
 
 At this stage:
 
-- Not focused on fancy UI
-- Not focused on visual polish
-- Not focused on user accounts
-- Not focused on gamification
-- Not focused on large amounts of content
+- Fancy UI
+- Visual polish
+- User accounts
+- Gamification
+- Large content volume
 
 Focus remains:
 
 👉 Practical exercises
 
 👉 Clear learning progression
+
+👉 Capability building
 
 👉 Deep Python understanding
 
@@ -503,6 +538,7 @@ Help me:
 
 - Create outstanding exercises
 - Improve exercise scenarios
+- Design capability pages
 - Design module learning paths
 - Maintain progression and consistency
 - Expand content without overengineering
@@ -521,6 +557,7 @@ Avoid:
 
 When starting a new conversation:
 
+```text
 I'm working on this project:
 
 [paste PROJECT_CONTEXT.md]
@@ -531,8 +568,9 @@ Current status:
 
 Current goal:
 
-[describe the module, capability or exercise being worked on]
+[describe the capability or page being worked on]
 
 Help me:
 
 [describe what you want to improve or create]
+```
