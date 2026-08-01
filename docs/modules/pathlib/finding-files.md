@@ -589,35 +589,36 @@ Your program should:
 
 #### Solution
 
-???\*success "Show Solution"
+??? success "Show Solution"
 
-    ```py*hon
+    ```python
     from pathlib import Path
 
-- project = Path("project")
+    project = Path("project")
 
-  *rint("Python files:")
-  for file*in project.rglob("*.py"):
-  *rint(file)
+    print("Python files:")
+  
+    for file in project.rglob("*.py"):
+        print(file)
 
-  print("\nMarkdown *iles:")
-  for file in project.rg*ob("\*.md"):
-  print(file)
+    print("\nMarkdown files:")
+  
+    for file in project.rglob("\*.md"):
+        print(file)
 
-- print("\nJSON files:")
-  for f*le in project.rglob("*.json"):
-- print(file)
-
-
+    print("\nJSON files:")
+  
+    for file in project.rglob("*.json"):
+        print(file)
     ```
 
-#### Why T\*is Exercise Exists
+#### Why This Exercise Exists
 
-Real projects *ften contain many different file t*pes.
+Real projects often contain many different file types.
 
-Before building automation, *evelopers frequently need to under*tand what files exist and how they\*are organized.
+Before building automation, developers frequently need to understand what files exist and how they are organized.
 
-This exercise comb*nes multiple file searches to buil* a broader picture of a directory \*tructure.
+This exercise combines multiple file searches to build a broader picture of a directory structure.
 
 ---
 
@@ -625,48 +626,48 @@ This exercise comb*nes multiple file searches to buil* a broader picture of a di
 
 #### Scenario
 
-You are organizing a \*arge notes collection.
+You are organizing a large notes collection.
 
 Your notes*are stored as Markdown files insid* many different folders.
 
-You woul\* like to see both:
+You would like to see both:
 
-- the file nam\*
+- the file name
 - the folder containing the file
   _for every note that is discovered._
 
 #### Objective
 
-Create a `Path` ob\*ect representing:
+Create a `Path` object representing:
 
 ```text
 notes
 ```
 
-Find all Markdown files within *he directory tree.
+Find all Markdown files within the directory tree.
 
-For each file,*print:
+For each file, print:
 
 - the file name
-- its pare*t directory
+- its parent directory
 
 #### Success Criteria
-*Your program should:
+Your program should:
 
-- Search rec*rsively for Markdown files
-- Acces* information about each file
-- Pri*t the file name
-- Print the parent*directory
+- Search recursively for Markdown files
+- Access information about each file
+- Print the file name
+- Print the parent directory
 
 #### Need a Hint?
 
 ??? tip "Small Hint"
 
-    A found file i* still a `Path` object.
+    A found file is still a `Path` object.
 
 ??? tip "Stronger Hint"
 
-    Path objects ex*ose useful attributes that describ* the file and its location.
+    Path objects expose useful attributes that describe the file and its location.
 
 ??? tip "Almost There"
 
@@ -674,7 +675,7 @@ For each file,*print:
 
     ```python
     file.name
-    file.*arent
+    file.parent
     ```
 
 ### Solution
@@ -692,13 +693,13 @@ For each file,*print:
         print()
     ```
 
-#### Why This*Exercise Exists
+#### Why This Exercise Exists
 
-Finding files is *sually only the first step.
+Finding files is usually only the first step.
 
 Once a file has been discovered, developors often need information about the file itself.
 
-This exercise combines file discovery with path inspection, reinforcing earlier capabilit*es from the module.
+This exercise combines file discovery with path inspection, reinforcing earlier capabilities from the module.
 
 ---
 
