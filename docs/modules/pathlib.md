@@ -45,7 +45,7 @@ Learn how to access file contents.
 
 Learn how to create and modify files.
 
-🚧 Work In Progress
+➡️ [Open Reading Files Exercises](./pathlib/writing-files.md).
 
 ### Finding Files
 
