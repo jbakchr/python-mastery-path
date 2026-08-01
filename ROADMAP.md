@@ -141,12 +141,7 @@ Create the first complete module and validate the overall learning approach.
 
 ### Filesystem Automation
 
-- Create capability page
-- Create Discover exercises
-- Create Apply exercises
-- Create Compose exercises
-- Create Automate exercises
-- Add solutions
+✅ Complete
 
 ---
 
@@ -160,7 +155,7 @@ Learn practical filesystem automation by combining related modules.
 
 ## pathlib
 
-- Complete remaining capabilities
+✅ Complete
 
 ## shutil
 
