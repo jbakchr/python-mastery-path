@@ -45,13 +45,13 @@ Learn how to access file contents.
 
 Learn how to create and modify files.
 
-➡️ [Open Reading Files Exercises](./pathlib/writing-files.md).
+➡️ [Open Writing Files Exercises](./pathlib/writing-files.md).
 
 ### Finding Files
 
 Learn how to search for files and folders.
 
-🚧 Coming soon
+➡️ [Open Finding Files Exercises](./pathlib/finding-files.md).
 
 ### Manipulating Paths
 
