@@ -129,12 +129,7 @@ Create the first complete module and validate the overall learning approach.
 
 ### Finding Files
 
-- Create capability page
-- Create Discover exercises
-- Create Apply exercises
-- Create Compose exercises
-- Create Automate exercises
-- Add solutions
+✅ Complete
 
 ### Manipulating Paths
 
