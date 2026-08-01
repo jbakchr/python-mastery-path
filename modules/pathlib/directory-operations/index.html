@@ -1,0 +1,3894 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn Python progressively through topics, modules, mini projects, and real-world projects.">
+      
+      
+      
+        <link rel="canonical" href="https://jbakchr.github.io/python-mastery-path/modules/pathlib/directory-operations/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Directory Operations - Python Mastery Path</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#directory-operations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Python Mastery Path" class="md-header__button md-logo" aria-label="Python Mastery Path" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python Mastery Path
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Directory Operations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jbakchr/python-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jbakchr/python-mastery-path
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Python Mastery Path" class="md-nav__button md-logo" aria-label="Python Mastery Path" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python Mastery Path
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jbakchr/python-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jbakchr/python-mastery-path
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Exercises
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic Exercises
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../topics/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../topics/lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../topics/dictionaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dictionaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module Exercises
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Module Exercises
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pathlib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shutil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    shutil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mini Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mini Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mini-projects/downloads-organizer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Downloads Organizer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real-World Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Real-World Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../real-world-projects/backup-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backup Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-progression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Progression
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discover
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Discover">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-01
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-01">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-02
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-02">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-03" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-03
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-03">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-04
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-04">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-05
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-05">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apply
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-06
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-06">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-07" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-07
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-07">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-08" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-08
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-08">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-09
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-09">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-10
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-11
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-12
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-12">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-13
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-13">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-14
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-14">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-15
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-15">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-17
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-17">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-18
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-18">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-19
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-do-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-DO-20
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-DO-20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="directory-operations">Directory Operations<a class="headerlink" href="#directory-operations" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Directories are the containers that organize files on a filesystem.</p>
+<p>Before files can be created, moved, archived, or processed, programs often need to work with directories first.</p>
+<p>Common tasks include:</p>
+<ul>
+<li>Creating project folders</li>
+<li>Creating output directories</li>
+<li>Checking whether directories exist</li>
+<li>Traversing directory structures</li>
+<li>Preparing locations for generated files</li>
+</ul>
+<p>The <code>pathlib</code> module makes directory operations straightforward by providing clear methods for working with directories as Path objects.</p>
+<p>Mastering directory operations is an important step toward building reliable filesystem automation.</p>
+<h2 id="learning-progression">Learning Progression<a class="headerlink" href="#learning-progression" title="Permanent link">&para;</a></h2>
+<p>The exercises in this capability are organized into four stages:</p>
+<div class="highlight"><pre><span></span><code>Discover
+    ↓
+Apply
+    ↓
+Compose
+    ↓
+Automate
+</code></pre></div>
+<p>Each stage builds on the previous one, gradually moving from understanding a capability to using it in practical automation tasks.</p>
+<hr />
+<h2 id="discover">Discover<a class="headerlink" href="#discover" title="Permanent link">&para;</a></h2>
+<p>Learn the fundamental capability.</p>
+<p>These exercises introduce the core ideas in a simple and focused way.</p>
+<p>Goal:</p>
+<p>👉 Learn the capability.</p>
+<hr />
+<h3 id="pathlib-do-01">PATHLIB-DO-01<a class="headerlink" href="#pathlib-do-01" title="Permanent link">&para;</a></h3>
+<h4 id="scenario">Scenario<a class="headerlink" href="#scenario" title="Permanent link">&para;</a></h4>
+<p>You are starting a new project and want a dedicated folder for your notes.</p>
+<p>The folder does not exist yet.</p>
+<p>Before you can save files there, you need to create it.</p>
+<h4 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h4>
+<p>Create a directory named:</p>
+<div class="highlight"><pre><span></span><code>notes
+</code></pre></div>
+<h4 id="success-criteria">Success Criteria<a class="headerlink" href="#success-criteria" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Create the directory if it does not already exist</li>
+</ul>
+<h4 id="need-a-hint">Need a Hint?<a class="headerlink" href="#need-a-hint" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Path objects can represent both files and directories.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>pathlib provides a method for creating directories.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<h4 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">notes</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;notes&quot;</span><span class="p">)</span>
+
+<span class="n">notes</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists" title="Permanent link">&para;</a></h4>
+<p>Many programs need to create directories before writing files.</p>
+<p>Examples include:</p>
+<ul>
+<li>Notes applications</li>
+<li>Report generators</li>
+<li>Backup tools</li>
+<li>Export utilities</li>
+</ul>
+<p>Creating directories is one of the most fundamental filesystem operations.</p>
+<hr />
+<h3 id="pathlib-do-02">PATHLIB-DO-02<a class="headerlink" href="#pathlib-do-02" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_1">Scenario<a class="headerlink" href="#scenario_1" title="Permanent link">&para;</a></h4>
+<p>You are organizing a documentation project.</p>
+<p>You want the following directory structure:</p>
+<div class="highlight"><pre><span></span><code>docs/
+└── guides/
+</code></pre></div>
+<p>Neither directory currently exists.</p>
+<h4 id="objective_1">Objective<a class="headerlink" href="#objective_1" title="Permanent link">&para;</a></h4>
+<p>Create the directory structure:</p>
+<div class="highlight"><pre><span></span><code>docs/guides
+</code></pre></div>
+<h4 id="success-criteria_1">Success Criteria<a class="headerlink" href="#success-criteria_1" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Create all required directories</li>
+<li>Create parent directories automatically</li>
+</ul>
+<h4 id="need-a-hint_1">Need a Hint?<a class="headerlink" href="#need-a-hint_1" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>The parent directory does not exist yet.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>pathlib can create missing parent directories automatically.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="solution_1">Solution<a class="headerlink" href="#solution_1" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">guides</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;docs/guides&quot;</span><span class="p">)</span>
+
+<span class="n">guides</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_1">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_1" title="Permanent link">&para;</a></h4>
+<p>Programs often need to create nested directory structures.</p>
+<p>Examples include:</p>
+<ul>
+<li>Documentation systems</li>
+<li>Build pipelines</li>
+<li>Website generators</li>
+<li>Data exports</li>
+</ul>
+<p>This capability allows complex directory structures to be created safely and efficiently.</p>
+<hr />
+<h3 id="pathlib-do-03">PATHLIB-DO-03<a class="headerlink" href="#pathlib-do-03" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_2">Scenario<a class="headerlink" href="#scenario_2" title="Permanent link">&para;</a></h4>
+<p>Before generating a report, you want to check whether the output directory already exists.</p>
+<p>The directory should be:</p>
+<div class="highlight"><pre><span></span><code>reports
+</code></pre></div>
+<h4 id="objective_2">Objective<a class="headerlink" href="#objective_2" title="Permanent link">&para;</a></h4>
+<p>Create a <code>Path</code> object representing:</p>
+<div class="highlight"><pre><span></span><code>reports
+</code></pre></div>
+<p>Check whether the directory exists and print the result.</p>
+<h4 id="success-criteria_2">Success Criteria<a class="headerlink" href="#success-criteria_2" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Check whether the path exists</li>
+<li>Print the result</li>
+</ul>
+<h4 id="need-a-hint_2">Need a Hint?<a class="headerlink" href="#need-a-hint_2" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Many filesystem operations begin with checking whether something already exists.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Path objects provide a method for existence checks.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<h4 id="solution_2">Solution<a class="headerlink" href="#solution_2" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">reports</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;reports&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">reports</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_2">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_2" title="Permanent link">&para;</a></h4>
+<p>Before creating files or directories, programs often need to determine whether a location already exists.</p>
+<p>Examples include:</p>
+<ul>
+<li>Setup scripts</li>
+<li>Installation tools</li>
+<li>Backup utilities</li>
+<li>Build systems</li>
+</ul>
+<p>Existence checks help avoid unnecessary errors and duplicate work.</p>
+<hr />
+<h3 id="pathlib-do-04">PATHLIB-DO-04<a class="headerlink" href="#pathlib-do-04" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_3">Scenario<a class="headerlink" href="#scenario_3" title="Permanent link">&para;</a></h4>
+<p>Your program receives a path from a user.</p>
+<p>The path could represent:</p>
+<ul>
+<li>A file</li>
+<li>A directory</li>
+</ul>
+<p>Before proceeding, your program needs to determine which it is.</p>
+<p>The path is:</p>
+<div class="highlight"><pre><span></span><code>documents
+</code></pre></div>
+<h4 id="objective_3">Objective<a class="headerlink" href="#objective_3" title="Permanent link">&para;</a></h4>
+<p>Create a <code>Path</code> object representing:</p>
+<div class="highlight"><pre><span></span><code>documents
+</code></pre></div>
+<p>Check whether the path represents a directory and print the result.</p>
+<h4 id="success-criteria_3">Success Criteria<a class="headerlink" href="#success-criteria_3" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Check whether the path is a directory</li>
+<li>Print the result</li>
+</ul>
+<h4 id="need-a-hint_3">Need a Hint?<a class="headerlink" href="#need-a-hint_3" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Existence and type are not the same thing.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>pathlib has methods that check specific filesystem types.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<h4 id="solution_3">Solution<a class="headerlink" href="#solution_3" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">documents</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;documents&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">documents</span><span class="o">.</span><span class="n">is_dir</span><span class="p">())</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_3">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_3" title="Permanent link">&para;</a></h4>
+<p>Programs frequently need to distinguish between files and directories.</p>
+<p>Examples include:</p>
+<ul>
+<li>File explorers</li>
+<li>Backup tools</li>
+<li>Search utilities</li>
+<li>Repository scanners</li>
+</ul>
+<p>Being able to identify directories is a key filesystem capability.</p>
+<hr />
+<h3 id="pathlib-do-05">PATHLIB-DO-05<a class="headerlink" href="#pathlib-do-05" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_4">Scenario<a class="headerlink" href="#scenario_4" title="Permanent link">&para;</a></h4>
+<p>You are exploring a project and want to understand its structure.</p>
+<p>The project contains several subdirectories, such as:</p>
+<div class="highlight"><pre><span></span><code>project/
+├── src/
+├── tests/
+├── docs/
+└── scripts/
+</code></pre></div>
+<p>You want to list only the directories.</p>
+<h4 id="objective_4">Objective<a class="headerlink" href="#objective_4" title="Permanent link">&para;</a></h4>
+<p>Create a <code>Path</code> object representing:</p>
+<div class="highlight"><pre><span></span><code>project
+</code></pre></div>
+<p>Print all immediate subdirectories contained within the directory.</p>
+<h4 id="success-criteria_4">Success Criteria<a class="headerlink" href="#success-criteria_4" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Iterate through the directory contents</li>
+<li>Identify directories</li>
+<li>Print only directories</li>
+</ul>
+<h4 id="need-a-hint_4">Need a Hint?<a class="headerlink" href="#need-a-hint_4" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Start by listing everything in the directory.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Each item can be checked individually.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Combine:</p>
+<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span>
+</code></pre></div>
+<p>with:</p>
+<div class="highlight"><pre><span></span><code><span class="n">item</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<h4 id="solution_4">Solution<a class="headerlink" href="#solution_4" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;project&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_4">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_4" title="Permanent link">&para;</a></h4>
+<p>Directory structures often reveal important information about a project.</p>
+<p>Examples include:</p>
+<ul>
+<li>Source code organization</li>
+<li>Documentation layouts</li>
+<li>Build artifacts</li>
+<li>Data storage locations</li>
+</ul>
+<p>This exercise combines directory traversal and inspection to help learners explore filesystem structures.</p>
+<hr />
+<h3 id="apply">Apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h3>
+<p>Use the capability in realistic situations.</p>
+<p>These exercises reinforce the capability through practical scenarios.</p>
+<p>Goal:</p>
+<p>👉 Use the capability.</p>
+<hr />
+<h3 id="pathlib-do-06">PATHLIB-DO-06<a class="headerlink" href="#pathlib-do-06" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_5">Scenario<a class="headerlink" href="#scenario_5" title="Permanent link">&para;</a></h4>
+<p>You are building a reporting script that generates daily reports.</p>
+<p>Before the script can save any report files, it needs a place to store them.</p>
+<p>The reports should be stored in:</p>
+<div class="highlight"><pre><span></span><code>reports
+</code></pre></div>
+<h4 id="objective_5">Objective<a class="headerlink" href="#objective_5" title="Permanent link">&para;</a></h4>
+<p>Create a program that:</p>
+<ul>
+<li>Creates a Path object for <code>reports</code></li>
+<li>Creates the directory if it does not already exist</li>
+<li>Prints a confirmation message</li>
+</ul>
+<h4 id="success-criteria_5">Success Criteria<a class="headerlink" href="#success-criteria_5" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Create the directory safely</li>
+<li>Avoid raising an error if the directory already exists</li>
+</ul>
+<h4 id="need-a-hint_5">Need a Hint?<a class="headerlink" href="#need-a-hint_5" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Your script may be run multiple times.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Directory creation can be configured to ignore existing directories.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="solution_5">Solution<a class="headerlink" href="#solution_5" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">reports</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;reports&quot;</span><span class="p">)</span>
+
+<span class="n">reports</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reports directory ready&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_5">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_5" title="Permanent link">&para;</a></h4>
+<p>Many programs need to prepare output locations before generating files.</p>
+<p>Examples include:</p>
+<ul>
+<li>Report generators</li>
+<li>Log processors</li>
+<li>Export utilities</li>
+<li>Backup tools</li>
+</ul>
+<p>Creating directories safely is an important part of building reliable software.</p>
+<hr />
+<h3 id="pathlib-do-07">PATHLIB-DO-07<a class="headerlink" href="#pathlib-do-07" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_6">Scenario<a class="headerlink" href="#scenario_6" title="Permanent link">&para;</a></h4>
+<p>You are developing a static site generator.</p>
+<p>Generated files should be written to:</p>
+<div class="highlight"><pre><span></span><code>site/output
+</code></pre></div>
+<p>The directory structure may not exist yet.</p>
+<p>Before generating any pages, your program must prepare the output location.</p>
+<h4 id="objective_6">Objective<a class="headerlink" href="#objective_6" title="Permanent link">&para;</a></h4>
+<p>Create a program that creates:</p>
+<div class="highlight"><pre><span></span><code>site/output
+</code></pre></div>
+<p>including any required parent directories.</p>
+<h4 id="success-criteria_6">Success Criteria<a class="headerlink" href="#success-criteria_6" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Create all missing parent directories</li>
+<li>Avoid errors if directories already exist</li>
+</ul>
+<h4 id="need-a-hint_6">Need a Hint?<a class="headerlink" href="#need-a-hint_6" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>More than one directory may need to be created.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>pathlib can automatically create parent directories.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Combine:</p>
+<div class="highlight"><pre><span></span><code><span class="n">parents</span><span class="o">=</span><span class="kc">True</span>
+</code></pre></div>
+<p>and:</p>
+<div class="highlight"><pre><span></span><code><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span>
+</code></pre></div>
+</details>
+<h4 id="solution_6">Solution<a class="headerlink" href="#solution_6" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;site/output&quot;</span><span class="p">)</span>
+
+<span class="n">output_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span>
+    <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Output directory ready&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_6">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_6" title="Permanent link">&para;</a></h4>
+<p>Many development tools generate files inside nested directory structures.</p>
+<p>Examples include:</p>
+<ul>
+<li>Static site generators</li>
+<li>Build systems</li>
+<li>Documentation tools</li>
+<li>Data pipelines</li>
+</ul>
+<p>Preparing output directories is often one of the first steps in an automation workflow.</p>
+<hr />
+<h3 id="pathlib-do-08">PATHLIB-DO-08<a class="headerlink" href="#pathlib-do-08" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_7">Scenario<a class="headerlink" href="#scenario_7" title="Permanent link">&para;</a></h4>
+<p>You have cloned a project repository.</p>
+<p>Before running development tools, you want to verify that the project contains a directory named:</p>
+<div class="highlight"><pre><span></span><code>src
+</code></pre></div>
+<h4 id="objective_7">Objective<a class="headerlink" href="#objective_7" title="Permanent link">&para;</a></h4>
+<p>Create a program that checks whether:</p>
+<div class="highlight"><pre><span></span><code>src
+</code></pre></div>
+<p>exists and prints the result.</p>
+<h4 id="success-criteria_7">Success Criteria<a class="headerlink" href="#success-criteria_7" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Check whether the directory exists</li>
+<li>Print the result</li>
+</ul>
+<h4 id="need-a-hint_7">Need a Hint?<a class="headerlink" href="#need-a-hint_7" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Before using a directory, it is often useful to confirm that it exists.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>pathlib provides a method specifically for existence checks.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<h4 id="solution_7">Solution<a class="headerlink" href="#solution_7" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">src</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_7">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_7" title="Permanent link">&para;</a></h4>
+<p>Many automation scripts need to validate project structures before continuing.</p>
+<p>Examples include:</p>
+<ul>
+<li>Build tools</li>
+<li>Deployment scripts</li>
+<li>Repository scanners</li>
+<li>Test runners</li>
+</ul>
+<p>Checking for required directories can prevent failures later in a workflow.</p>
+<hr />
+<h3 id="pathlib-do-09">PATHLIB-DO-09<a class="headerlink" href="#pathlib-do-09" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_8">Scenario<a class="headerlink" href="#scenario_8" title="Permanent link">&para;</a></h4>
+<p>You are exploring an unfamiliar repository.</p>
+<p>The project contains several directories such as:</p>
+<div class="highlight"><pre><span></span><code>project/
+├── src/
+├── tests/
+├── docs/
+├── scripts/
+└── tools/
+</code></pre></div>
+<p>You want a quick overview of the available project sections.</p>
+<h4 id="objective_8">Objective<a class="headerlink" href="#objective_8" title="Permanent link">&para;</a></h4>
+<p>Create a program that:</p>
+<ul>
+<li>Lists all items inside the <code>project</code> directory</li>
+<li>Prints only the directories</li>
+</ul>
+<h4 id="success-criteria_8">Success Criteria<a class="headerlink" href="#success-criteria_8" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Iterate through directory contents</li>
+<li>Print only directories</li>
+</ul>
+<h4 id="need-a-hint_8">Need a Hint?<a class="headerlink" href="#need-a-hint_8" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Begin by listing everything inside the directory.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Each item can be inspected individually.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Combine:</p>
+<div class="highlight"><pre><span></span><code><span class="n">iterdir</span><span class="p">()</span>
+</code></pre></div>
+<p>with:</p>
+<div class="highlight"><pre><span></span><code><span class="n">is_dir</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<h4 id="solution_8">Solution<a class="headerlink" href="#solution_8" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;project&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_8">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_8" title="Permanent link">&para;</a></h4>
+<p>Directory listings are useful for understanding how projects are organized.</p>
+<p>Examples include:</p>
+<ul>
+<li>Source code repositories</li>
+<li>Documentation collections</li>
+<li>Data projects</li>
+<li>Automation systems</li>
+</ul>
+<p>Being able to inspect directory structures is a common development task.</p>
+<hr />
+<h3 id="pathlib-do-10">PATHLIB-DO-10<a class="headerlink" href="#pathlib-do-10" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_9">Scenario<a class="headerlink" href="#scenario_9" title="Permanent link">&para;</a></h4>
+<p>You are building a file archiving tool.</p>
+<p>Archived files should be stored inside:</p>
+<div class="highlight"><pre><span></span><code>archive
+</code></pre></div>
+<p>Before archiving can begin, your program must ensure the directory exists.</p>
+<h4 id="objective_9">Objective<a class="headerlink" href="#objective_9" title="Permanent link">&para;</a></h4>
+<p>Create a program that:</p>
+<ul>
+<li>Creates an <code>archive</code> directory</li>
+<li>Checks whether the directory exists</li>
+<li>Prints the result</li>
+</ul>
+<h4 id="success-criteria_9">Success Criteria<a class="headerlink" href="#success-criteria_9" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Create the directory safely</li>
+<li>Verify its existence</li>
+<li>Print the result</li>
+</ul>
+<h4 id="need-a-hint_9">Need a Hint?<a class="headerlink" href="#need-a-hint_9" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>This exercise combines creation and verification.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Create the directory first, then perform a check.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mkdir</span><span class="p">()</span>
+</code></pre></div>
+<p>and:</p>
+<div class="highlight"><pre><span></span><code><span class="n">exists</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<h4 id="solution_9">Solution<a class="headerlink" href="#solution_9" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">archive</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;archive&quot;</span><span class="p">)</span>
+
+<span class="n">archive</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">archive</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_9">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_9" title="Permanent link">&para;</a></h4>
+<p>Real programs often perform several directory operations as part of a workflow.</p>
+<p>Examples include:</p>
+<ul>
+<li>Backup systems</li>
+<li>Archiving tools</li>
+<li>Deployment scripts</li>
+<li>Data processing pipelines</li>
+</ul>
+<p>This exercise combines creation and validation, which commonly occur together in production code.</p>
+<hr />
+<h2 id="compose">Compose<a class="headerlink" href="#compose" title="Permanent link">&para;</a></h2>
+<p>Combine multiple techniques.</p>
+<p>These exercises require bringing together ideas learned earlier in the module.</p>
+<p>Goal:</p>
+<p>👉 Combine capabilities.</p>
+<hr />
+<h3 id="pathlib-do-11">PATHLIB-DO-11<a class="headerlink" href="#pathlib-do-11" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_10">Scenario<a class="headerlink" href="#scenario_10" title="Permanent link">&para;</a></h4>
+<p>You are creating a documentation project.</p>
+<p>The project should contain the following directory structure:</p>
+<div class="highlight"><pre><span></span><code>docs/
+├── guides/
+├── tutorials/
+└── reference/
+</code></pre></div>
+<p>Rather than creating each directory manually, you want Python to prepare the structure for you.</p>
+<h4 id="objective_10">Objective<a class="headerlink" href="#objective_10" title="Permanent link">&para;</a></h4>
+<p>Create a program that creates:</p>
+<div class="highlight"><pre><span></span><code>docs/guides
+docs/tutorials
+docs/reference
+</code></pre></div>
+<h4 id="success-criteria_10">Success Criteria<a class="headerlink" href="#success-criteria_10" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create all required directories</li>
+<li>Create missing parent directories automatically</li>
+<li>Avoid errors if directories already exist</li>
+</ul>
+<h4 id="need-a-hint_10">Need a Hint?<a class="headerlink" href="#need-a-hint_10" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Multiple Path objects may be needed.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Create a collection containing the directories you want to create.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Loop through the paths and call:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="solution_10">Solution<a class="headerlink" href="#solution_10" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">directories</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;docs/guides&quot;</span><span class="p">),</span>
+    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;docs/tutorials&quot;</span><span class="p">),</span>
+    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;docs/reference&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">directories</span><span class="p">:</span>
+    <span class="n">directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span>
+        <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_10">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_10" title="Permanent link">&para;</a></h4>
+<p>Many projects require a predefined directory structure.</p>
+<p>Examples include:</p>
+<ul>
+<li>Documentation sites</li>
+<li>Static site generators</li>
+<li>Software projects</li>
+<li>Data pipelines</li>
+</ul>
+<p>This exercise combines directory creation with iteration to automate project setup.</p>
+<hr />
+<h3 id="pathlib-do-12">PATHLIB-DO-12<a class="headerlink" href="#pathlib-do-12" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_11">Scenario<a class="headerlink" href="#scenario_11" title="Permanent link">&para;</a></h4>
+<p>You are creating a new Python project.</p>
+<p>The standard project structure should look like:</p>
+<div class="highlight"><pre><span></span><code>my_project/
+├── src/
+├── tests/
+├── docs/
+└── scripts/
+</code></pre></div>
+<p>You want Python to create the entire structure automatically.</p>
+<h4 id="objective_11">Objective<a class="headerlink" href="#objective_11" title="Permanent link">&para;</a></h4>
+<p>Create the following directories:</p>
+<div class="highlight"><pre><span></span><code>my_project/src
+my_project/tests
+my_project/docs
+my_project/scripts
+</code></pre></div>
+<h4 id="success-criteria_11">Success Criteria<a class="headerlink" href="#success-criteria_11" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create all directories</li>
+<li>Preserve the project hierarchy</li>
+<li>Create parent directories automatically</li>
+</ul>
+<h4 id="need-a-hint_11">Need a Hint?<a class="headerlink" href="#need-a-hint_11" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>The directories all share a common parent.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Create a base Path and build paths from it.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">project</span> <span class="o">/</span> <span class="s2">&quot;src&quot;</span>
+</code></pre></div>
+<p>to build each directory path.</p>
+</details>
+<h4 id="solution_11">Solution<a class="headerlink" href="#solution_11" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;my_project&quot;</span><span class="p">)</span>
+
+<span class="n">directories</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">project</span> <span class="o">/</span> <span class="s2">&quot;src&quot;</span><span class="p">,</span>
+    <span class="n">project</span> <span class="o">/</span> <span class="s2">&quot;tests&quot;</span><span class="p">,</span>
+    <span class="n">project</span> <span class="o">/</span> <span class="s2">&quot;docs&quot;</span><span class="p">,</span>
+    <span class="n">project</span> <span class="o">/</span> <span class="s2">&quot;scripts&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">directories</span><span class="p">:</span>
+    <span class="n">directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span>
+        <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_11">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_11" title="Permanent link">&para;</a></h4>
+<p>Developers often create the same project structure repeatedly.</p>
+<p>Automatically creating directory layouts saves time and reduces setup mistakes.</p>
+<p>This exercise combines path manipulation and directory operations.</p>
+<hr />
+<h3 id="pathlib-do-13">PATHLIB-DO-13<a class="headerlink" href="#pathlib-do-13" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_12">Scenario<a class="headerlink" href="#scenario_12" title="Permanent link">&para;</a></h4>
+<p>A documentation project should contain:</p>
+<div class="highlight"><pre><span></span><code>docs/
+├── guides/
+├── tutorials/
+└── api/
+</code></pre></div>
+<p>You are not sure whether all directories currently exist.</p>
+<p>You want Python to identify any missing directories and create them.</p>
+<h4 id="objective_12">Objective<a class="headerlink" href="#objective_12" title="Permanent link">&para;</a></h4>
+<p>Create a program that:</p>
+<ul>
+<li>Checks whether each directory exists</li>
+<li>Creates missing directories</li>
+<li>Prints a message when a directory is created</li>
+</ul>
+<h4 id="success-criteria_12">Success Criteria<a class="headerlink" href="#success-criteria_12" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Check each directory</li>
+<li>Create missing directories</li>
+<li>Print useful feedback</li>
+</ul>
+<h4 id="need-a-hint_12">Need a Hint?<a class="headerlink" href="#need-a-hint_12" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Begin by defining the required directories.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Use an existence check before creating a directory.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Combine:</p>
+<div class="highlight"><pre><span></span><code><span class="n">exists</span><span class="p">()</span>
+</code></pre></div>
+<p>and:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mkdir</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<h4 id="solution_12">Solution<a class="headerlink" href="#solution_12" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">directories</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;docs/guides&quot;</span><span class="p">),</span>
+    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;docs/tutorials&quot;</span><span class="p">),</span>
+    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;docs/api&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">directories</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">directory</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span>
+            <span class="n">parents</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created: </span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_12">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_12" title="Permanent link">&para;</a></h4>
+<p>Many automation tools need to verify and repair directory structures.</p>
+<p>Examples include:</p>
+<ul>
+<li>Installation scripts</li>
+<li>Project setup tools</li>
+<li>Build systems</li>
+<li>Deployment utilities</li>
+</ul>
+<p>This exercise combines inspection and directory creation.</p>
+<hr />
+<h3 id="pathlib-do-14">PATHLIB-DO-14<a class="headerlink" href="#pathlib-do-14" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_13">Scenario<a class="headerlink" href="#scenario_13" title="Permanent link">&para;</a></h4>
+<p>You are exploring an unfamiliar repository.</p>
+<p>Before making changes, you want to see all top-level directories contained within the project.</p>
+<p>You are only interested in directories, not files.</p>
+<h4 id="objective_13">Objective<a class="headerlink" href="#objective_13" title="Permanent link">&para;</a></h4>
+<p>Create a program that:</p>
+<ul>
+<li>Lists all items inside a directory named <code>repository</code></li>
+<li>Prints only directories</li>
+<li>Displays the directory name</li>
+</ul>
+<h4 id="success-criteria_13">Success Criteria<a class="headerlink" href="#success-criteria_13" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Iterate through directory contents</li>
+<li>Identify directories</li>
+<li>Print directory names</li>
+</ul>
+<h4 id="need-a-hint_13">Need a Hint?<a class="headerlink" href="#need-a-hint_13" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Start by examining each item inside the directory.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Each item has methods that describe its type.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Combine:</p>
+<div class="highlight"><pre><span></span><code><span class="n">iterdir</span><span class="p">()</span>
+</code></pre></div>
+<p>with:</p>
+<div class="highlight"><pre><span></span><code><span class="n">is_dir</span><span class="p">()</span>
+</code></pre></div>
+<p>and:</p>
+<div class="highlight"><pre><span></span><code><span class="n">item</span><span class="o">.</span><span class="n">name</span>
+</code></pre></div>
+</details>
+<h4 id="solution_13">Solution<a class="headerlink" href="#solution_13" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">repository</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;repository&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">repository</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_13">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_13" title="Permanent link">&para;</a></h4>
+<p>Directory exploration is frequently part of automation workflows.</p>
+<p>Examples include:</p>
+<ul>
+<li>Repository scanning</li>
+<li>Build tools</li>
+<li>Backup systems</li>
+<li>Project health checks</li>
+</ul>
+<p>This exercise combines directory traversal and path inspection.</p>
+<hr />
+<h3 id="pathlib-do-15">PATHLIB-DO-15<a class="headerlink" href="#pathlib-do-15" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_14">Scenario<a class="headerlink" href="#scenario_14" title="Permanent link">&para;</a></h4>
+<p>You are developing a backup tool.</p>
+<p>Before backups can be stored, the following directories must exist:</p>
+<div class="highlight"><pre><span></span><code>backup/
+├── daily/
+├── weekly/
+└── monthly/
+</code></pre></div>
+<p>The tool should create any missing directories automatically.</p>
+<h4 id="objective_14">Objective<a class="headerlink" href="#objective_14" title="Permanent link">&para;</a></h4>
+<p>Create a program that:</p>
+<ul>
+<li>Creates the backup directory structure</li>
+<li>Ensures all required directories exist</li>
+<li>Prints the directories that were created</li>
+</ul>
+<h4 id="success-criteria_14">Success Criteria<a class="headerlink" href="#success-criteria_14" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create nested directories</li>
+<li>Check for existing directories</li>
+<li>Print helpful status information</li>
+</ul>
+<h4 id="need-a-hint_14">Need a Hint?<a class="headerlink" href="#need-a-hint_14" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Create a collection containing all required paths.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Check whether the directory already exists before creating it.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Combine:</p>
+<div class="highlight"><pre><span></span><code><span class="n">exists</span><span class="p">()</span>
+</code></pre></div>
+<p>and:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="solution_14">Solution<a class="headerlink" href="#solution_14" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">directories</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;backup/daily&quot;</span><span class="p">),</span>
+    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;backup/weekly&quot;</span><span class="p">),</span>
+    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;backup/monthly&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">directories</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">directory</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span>
+            <span class="n">parents</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created: </span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_14">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_14" title="Permanent link">&para;</a></h4>
+<p>Real applications often require workspace preparation before performing their primary task.</p>
+<p>Examples include:</p>
+<ul>
+<li>Backup utilities</li>
+<li>Data pipelines</li>
+<li>Export tools</li>
+<li>Log processing systems</li>
+</ul>
+<p>This exercise combines directory creation, validation, and reporting into a practical workflow.</p>
+<hr />
+<h2 id="automate">Automate<a class="headerlink" href="#automate" title="Permanent link">&para;</a></h2>
+<p>Create solutions that reduce repetitive work.</p>
+<p>These exercises focus on building practical automations.</p>
+<p>Goal:</p>
+<p>👉 Automate solutions.</p>
+<hr />
+<h3 id="pathlib-do-16">PATHLIB-DO-16<a class="headerlink" href="#pathlib-do-16" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_15">Scenario<a class="headerlink" href="#scenario_15" title="Permanent link">&para;</a></h4>
+<p>You frequently start small Python projects.</p>
+<p>Every project should contain the following structure:</p>
+<div class="highlight"><pre><span></span><code>project/
+├── src/
+├── tests/
+├── docs/
+└── data/
+</code></pre></div>
+<p>Rather than creating these directories manually each time, you decide to automate the setup process.</p>
+<h4 id="objective_15">Objective<a class="headerlink" href="#objective_15" title="Permanent link">&para;</a></h4>
+<p>Create a program that:</p>
+<ul>
+<li>Creates the project directory structure</li>
+<li>Creates any missing directories</li>
+<li>Prints the directories that were created</li>
+</ul>
+<h4 id="success-criteria_15">Success Criteria<a class="headerlink" href="#success-criteria_15" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create all required directories</li>
+<li>Create parent directories automatically</li>
+<li>Print useful status information</li>
+</ul>
+<h4 id="need-a-hint_15">Need a Hint?<a class="headerlink" href="#need-a-hint_15" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Start by defining all required directory paths.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Store the paths in a collection and process them in a loop.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="solution_15">Solution<a class="headerlink" href="#solution_15" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;project&quot;</span><span class="p">)</span>
+
+<span class="n">directories</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">project</span> <span class="o">/</span> <span class="s2">&quot;src&quot;</span><span class="p">,</span>
+    <span class="n">project</span> <span class="o">/</span> <span class="s2">&quot;tests&quot;</span><span class="p">,</span>
+    <span class="n">project</span> <span class="o">/</span> <span class="s2">&quot;docs&quot;</span><span class="p">,</span>
+    <span class="n">project</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">directories</span><span class="p">:</span>
+    <span class="n">directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span>
+        <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ready: </span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_15">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_15" title="Permanent link">&para;</a></h4>
+<p>Developers often create the same directory structures repeatedly.</p>
+<p>Examples include:</p>
+<ul>
+<li>Python projects</li>
+<li>Documentation projects</li>
+<li>Data pipelines</li>
+<li>Automation tools</li>
+</ul>
+<p>Automating project setup saves time and ensures consistency.</p>
+<hr />
+<h3 id="pathlib-do-17">PATHLIB-DO-17<a class="headerlink" href="#pathlib-do-17" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_16">Scenario<a class="headerlink" href="#scenario_16" title="Permanent link">&para;</a></h4>
+<p>You are building a static site generator.</p>
+<p>Before pages can be generated, the following output structure must exist:</p>
+<div class="highlight"><pre><span></span><code>site/
+├── pages/
+├── assets/
+├── images/
+└── css/
+</code></pre></div>
+<p>You want Python to prepare the workspace automatically.</p>
+<h4 id="objective_16">Objective<a class="headerlink" href="#objective_16" title="Permanent link">&para;</a></h4>
+<p>Create a program that:</p>
+<ul>
+<li>Creates the required output directories</li>
+<li>Creates parent directories when needed</li>
+<li>Prints the created directory structure</li>
+</ul>
+<h4 id="success-criteria_16">Success Criteria<a class="headerlink" href="#success-criteria_16" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create all required directories</li>
+<li>Create missing parent directories</li>
+<li>Print each prepared directory</li>
+</ul>
+<h4 id="need-a-hint_16">Need a Hint?<a class="headerlink" href="#need-a-hint_16" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>This is similar to setting up a project structure.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Build each directory path from a common parent directory.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">site</span> <span class="o">/</span> <span class="s2">&quot;pages&quot;</span>
+</code></pre></div>
+<p>and similar paths for the remaining directories.</p>
+</details>
+<h4 id="solution_16">Solution<a class="headerlink" href="#solution_16" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">site</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;site&quot;</span><span class="p">)</span>
+
+<span class="n">directories</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">site</span> <span class="o">/</span> <span class="s2">&quot;pages&quot;</span><span class="p">,</span>
+    <span class="n">site</span> <span class="o">/</span> <span class="s2">&quot;assets&quot;</span><span class="p">,</span>
+    <span class="n">site</span> <span class="o">/</span> <span class="s2">&quot;images&quot;</span><span class="p">,</span>
+    <span class="n">site</span> <span class="o">/</span> <span class="s2">&quot;css&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">directories</span><span class="p">:</span>
+    <span class="n">directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span>
+        <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ready: </span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_16">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_16" title="Permanent link">&para;</a></h4>
+<p>Many tools require a directory structure before any work can begin.</p>
+<p>Examples include:</p>
+<ul>
+<li>Static site generators</li>
+<li>Build systems</li>
+<li>Documentation tools</li>
+<li>Asset pipelines</li>
+</ul>
+<p>Preparing workspaces is a common automation task.</p>
+<hr />
+<h3 id="pathlib-do-18">PATHLIB-DO-18<a class="headerlink" href="#pathlib-do-18" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_17">Scenario<a class="headerlink" href="#scenario_17" title="Permanent link">&para;</a></h4>
+<p>You are creating a backup utility.</p>
+<p>The tool stores backups using the following structure:</p>
+<div class="highlight"><pre><span></span><code>backups/
+├── daily/
+├── weekly/
+├── monthly/
+└── yearly/
+</code></pre></div>
+<p>Every time the utility runs, it should ensure the directories exist.</p>
+<h4 id="objective_17">Objective<a class="headerlink" href="#objective_17" title="Permanent link">&para;</a></h4>
+<p>Create a program that:</p>
+<ul>
+<li>Creates any missing backup directories</li>
+<li>Verifies that each directory exists</li>
+<li>Prints a summary of the backup structure</li>
+</ul>
+<h4 id="success-criteria_17">Success Criteria<a class="headerlink" href="#success-criteria_17" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create required directories</li>
+<li>Check existence</li>
+<li>Print directory information</li>
+</ul>
+<h4 id="need-a-hint_17">Need a Hint?<a class="headerlink" href="#need-a-hint_17" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>You will need both directory creation and directory inspection.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Create the directories first, then verify them.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">exists</span><span class="p">()</span>
+</code></pre></div>
+<p>after:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mkdir</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<h4 id="solution_17">Solution<a class="headerlink" href="#solution_17" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">directories</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;backups/daily&quot;</span><span class="p">),</span>
+    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;backups/weekly&quot;</span><span class="p">),</span>
+    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;backups/monthly&quot;</span><span class="p">),</span>
+    <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;backups/yearly&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">directories</span><span class="p">:</span>
+    <span class="n">directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span>
+        <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">directory</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_17">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_17" title="Permanent link">&para;</a></h4>
+<p>Reliable automation often begins with ensuring required resources exist.</p>
+<p>Examples include:</p>
+<ul>
+<li>Backup systems</li>
+<li>Archive systems</li>
+<li>Scheduled jobs</li>
+<li>Data processing pipelines</li>
+</ul>
+<p>This exercise combines creation, validation, and reporting.</p>
+<hr />
+<h3 id="pathlib-do-19">PATHLIB-DO-19<a class="headerlink" href="#pathlib-do-19" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_18">Scenario<a class="headerlink" href="#scenario_18" title="Permanent link">&para;</a></h4>
+<p>You are investigating a repository and would like a quick overview of its top-level directory structure.</p>
+<p>Rather than opening folders manually, you decide to generate a simple report.</p>
+<h4 id="objective_18">Objective<a class="headerlink" href="#objective_18" title="Permanent link">&para;</a></h4>
+<p>Create a program that:</p>
+<ul>
+<li>Examines the <code>repository</code> directory</li>
+<li>Finds all immediate subdirectories</li>
+<li>Prints the name of each directory</li>
+<li>Displays the total number of directories found</li>
+</ul>
+<h4 id="success-criteria_18">Success Criteria<a class="headerlink" href="#success-criteria_18" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Iterate through directory contents</li>
+<li>Identify directories</li>
+<li>Count directories</li>
+<li>Print a summary report</li>
+</ul>
+<h4 id="need-a-hint_18">Need a Hint?<a class="headerlink" href="#need-a-hint_18" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>You have already learned how to list directories.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Store matching directories before printing them.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Consider:</p>
+<div class="highlight"><pre><span></span><code><span class="n">directories</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">item</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">repository</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
+<span class="p">]</span>
+</code></pre></div>
+</details>
+<h4 id="solution_18">Solution<a class="headerlink" href="#solution_18" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">repository</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;repository&quot;</span><span class="p">)</span>
+
+<span class="n">directories</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">item</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">repository</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">directories</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">directory</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total directories: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">directories</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_18">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_18" title="Permanent link">&para;</a></h4>
+<p>Many developer tools begin by exploring a project's structure.</p>
+<p>Examples include:</p>
+<ul>
+<li>Repository scanners</li>
+<li>Build tools</li>
+<li>Documentation generators</li>
+<li>Project analyzers</li>
+</ul>
+<p>This exercise demonstrates how directory operations can support reporting and analysis.</p>
+<hr />
+<h3 id="pathlib-do-20">PATHLIB-DO-20<a class="headerlink" href="#pathlib-do-20" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_19">Scenario<a class="headerlink" href="#scenario_19" title="Permanent link">&para;</a></h4>
+<p>You are creating a workspace bootstrapper for data analysis projects.</p>
+<p>Every new project should contain:</p>
+<div class="highlight"><pre><span></span><code>workspace/
+├── raw-data/
+├── processed-data/
+├── reports/
+├── notebooks/
+└── exports/
+</code></pre></div>
+<p>The tool should create the structure and provide a summary when finished.</p>
+<h4 id="objective_19">Objective<a class="headerlink" href="#objective_19" title="Permanent link">&para;</a></h4>
+<p>Create a program that:</p>
+<ul>
+<li>Creates the complete workspace structure</li>
+<li>Creates parent directories as needed</li>
+<li>Prints each created directory</li>
+<li>Prints the total number of directories prepared</li>
+</ul>
+<h4 id="success-criteria_19">Success Criteria<a class="headerlink" href="#success-criteria_19" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create the entire workspace structure</li>
+<li>Handle missing parent directories</li>
+<li>Produce a useful summary report</li>
+</ul>
+<h4 id="need-a-hint_19">Need a Hint?<a class="headerlink" href="#need-a-hint_19" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Define the required directory paths first.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Store the paths in a collection and loop through them.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">len</span><span class="p">(</span><span class="n">directories</span><span class="p">)</span>
+</code></pre></div>
+<p>to generate the final summary.</p>
+</details>
+<h4 id="solution_19">Solution<a class="headerlink" href="#solution_19" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">workspace</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;workspace&quot;</span><span class="p">)</span>
+
+<span class="n">directories</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">workspace</span> <span class="o">/</span> <span class="s2">&quot;raw-data&quot;</span><span class="p">,</span>
+    <span class="n">workspace</span> <span class="o">/</span> <span class="s2">&quot;processed-data&quot;</span><span class="p">,</span>
+    <span class="n">workspace</span> <span class="o">/</span> <span class="s2">&quot;reports&quot;</span><span class="p">,</span>
+    <span class="n">workspace</span> <span class="o">/</span> <span class="s2">&quot;notebooks&quot;</span><span class="p">,</span>
+    <span class="n">workspace</span> <span class="o">/</span> <span class="s2">&quot;exports&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">directories</span><span class="p">:</span>
+    <span class="n">directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span>
+        <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ready: </span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Prepared </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">directories</span><span class="p">)</span><span class="si">}</span><span class="s2"> directories.&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_19">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_19" title="Permanent link">&para;</a></h4>
+<p>Many real-world automation tools begin by preparing a structured workspace.</p>
+<p>Examples include:</p>
+<ul>
+<li>Data analysis projects</li>
+<li>ETL pipelines</li>
+<li>Reporting systems</li>
+<li>Machine learning projects</li>
+</ul>
+<p>This exercise brings together the core directory operations learned throughout the capability:</p>
+<ul>
+<li>Creating directories</li>
+<li>Creating nested directories</li>
+<li>Checking existence</li>
+<li>Organizing directory structures</li>
+<li>Generating summary information</li>
+</ul>
+<p>It is the closest exercise in this capability to a real utility that a developer might use regularly.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
