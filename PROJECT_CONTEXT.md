@@ -174,7 +174,7 @@ Task
 
 ---
 
-# 📋 Exercise Template
+# 📋 Exercise Structure
 
 Every exercise follows a standard structure:
 
@@ -192,7 +192,7 @@ Solution
 Why This Exercise Exists
 ```
 
-### Progressive Hints
+## Progressive Hints
 
 Hints are progressive:
 
@@ -212,9 +212,9 @@ The goal is to encourage learners to think and experiment before receiving more 
 
 ---
 
-# 📄 Exercise Page Template
+# 📄 Capability Page Structure
 
-Every exercise page follows the same progression:
+Every capability page follows the same progression:
 
 ```text
 Discover
@@ -279,6 +279,32 @@ Automate
 
 ---
 
+# ✅ Module Completion Standard
+
+A module is considered complete when:
+
+✅ Module introduction exists
+
+✅ Capability overview exists
+
+✅ All capability pages exist
+
+✅ Discover exercises completed
+
+✅ Apply exercises completed
+
+✅ Compose exercises completed
+
+✅ Automate exercises completed
+
+✅ Progressive hints added
+
+✅ Solutions added
+
+✅ Exercise explanations added
+
+---
+
 # ⚙️ Current Project Status
 
 ## Infrastructure
@@ -291,7 +317,7 @@ Automate
 
 ✅ Exercise template established
 
-✅ Exercise page template established
+✅ Capability page template established
 
 ✅ Progressive hint system established
 
@@ -311,27 +337,41 @@ Automate
 
 ---
 
-## pathlib
+## pathlib Module
 
 ✅ Module introduction
 
 ✅ Capability overview
 
-✅ Creating Paths capability page
+✅ Creating Paths
 
-✅ Discover exercises completed
+✅ Inspecting Paths
 
-✅ Apply exercises completed
+✅ Reading Files
 
-✅ Compose exercises completed
+✅ Writing Files
 
-✅ Automate exercises completed
+✅ Finding Files
+
+✅ Manipulating Paths
+
+✅ Directory Operations
+
+✅ Filesystem Automation
+
+✅ Discover exercises
+
+✅ Apply exercises
+
+✅ Compose exercises
+
+✅ Automate exercises
 
 ✅ Solutions added
 
 ✅ Exercise explanations added
 
-The Creating Paths capability is considered complete.
+The pathlib module is now structurally complete.
 
 ---
 
@@ -430,46 +470,57 @@ NOT:
 
 Current priority:
 
-👉 Complete the pathlib module.
-
-Specifically:
-
 ```text
-Inspecting Paths
+Validate pathlib
+    ↓
+Refine pathlib
+    ↓
+Expand carefully
 ```
 
-is the next capability to build.
+The goal is NOT to rush into new modules.
 
-Do not rush into:
+The goal is to verify that the pathlib learning progression is genuinely effective.
 
-- Additional modules
-- Mini projects
-- Styling improvements
-- Gamification
+Focus on:
 
-First validate the learning progression across the entire pathlib module.
+- Reviewing exercises
+- Improving scenarios
+- Improving hints
+- Reducing overlap
+- Strengthening learning progression
 
 ---
 
 # 🎯 Near-Term Focus
 
-## pathlib
+## pathlib Validation
 
-Remaining capabilities:
+Review:
 
-- Inspecting Paths
-- Reading Files
-- Writing Files
-- Finding Files
-- Manipulating Paths
-- Directory Operations
-- Filesystem Automation
+- Capability progression
+- Exercise quality
+- Hint quality
+- Real-world relevance
+- Learning flow
 
-Goal:
+Success means:
 
-Build a complete and enjoyable pathlib learning experience.
+👉 The pathlib module becomes the quality standard for all future modules.
 
-Use the same standards established in Creating Paths.
+---
+
+## Next Planned Module
+
+After pathlib has been validated:
+
+```text
+pathlib
+    ↓
+shutil
+```
+
+The shutil module should follow exactly the same standards established within pathlib.
 
 ---
 
@@ -481,7 +532,7 @@ At this stage:
 - Visual polish
 - User accounts
 - Gamification
-- Large content volume
+- Large feature additions
 
 Focus remains:
 
@@ -540,6 +591,8 @@ Help me:
 - Improve exercise scenarios
 - Design capability pages
 - Design module learning paths
+- Review existing content
+- Identify weak exercises
 - Maintain progression and consistency
 - Expand content without overengineering
 - Keep the focus on practical capability building
@@ -563,14 +616,19 @@ I'm working on this project:
 [paste PROJECT_CONTEXT.md]
 
 Current status:
-
 [describe what has been built]
 
 Current goal:
-
-[describe the capability or page being worked on]
+[describe the capability, module, review, or project being worked on]
 
 Help me:
-
 [describe what you want to improve or create]
 ```
+
+Use this context to:
+
+- stay consistent with the project's philosophy
+- maintain exercise quality
+- maintain progression
+- avoid feature creep
+- prioritize capability building over syntax teaching
