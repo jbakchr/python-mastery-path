@@ -2,9 +2,11 @@
 
 Learn Python progressively through topics, modules, mini projects, and real-world projects.
 
-Python Mastery Path is a structured learning path designed to help developers move beyond simply knowing Python syntax and toward genuinely mastering Python through deliberate practice.
+Python Mastery Path is a structured learning path designed to help developers move beyond knowing Python syntax and toward genuinely mastering Python through deliberate practice.
 
 The project is primarily intended as a personal learning resource, but may also be useful to other Python developers who want a practical and structured way to deepen their Python knowledge.
+
+---
 
 ## Website
 
@@ -14,16 +16,16 @@ https://jbakchr.github.io/python-mastery-path/
 
 ---
 
-## Why This Project Exists
+# Why This Project Exists
 
 Many Python learning resources focus heavily on beginner concepts:
 
 - Variables
 - Loops
 - Functions
-- If statements
+- If Statements
 
-While these topics are important, experienced Python developers often face a different challenge:
+While those topics are important, experienced Python developers often face a different challenge:
 
 > Knowing that a module or capability exists, but not remembering it well enough to naturally use it when solving real problems.
 
@@ -41,7 +43,7 @@ Python Mastery Path exists to help develop deep familiarity with Python concepts
 
 ---
 
-## Learning Philosophy
+# Learning Philosophy
 
 The goal is not:
 
@@ -63,7 +65,7 @@ Success is measured by questions such as:
 
 ---
 
-## Learning Progression
+# Learning Progression
 
 The entire project is built around the following progression:
 
@@ -93,9 +95,9 @@ Each level builds upon the knowledge gained in the previous level.
 
 ---
 
-## Site Structure
+# Site Structure
 
-### Topic Exercises
+## Topic Exercises
 
 Focus on core Python language concepts.
 
@@ -114,7 +116,7 @@ Goal:
 
 ---
 
-### Module Exercises
+## Module Exercises
 
 Focus on mastering individual Python modules.
 
@@ -141,7 +143,7 @@ Goal:
 
 ---
 
-### Mini Projects
+## Mini Projects
 
 Combine multiple concepts and modules into practical solutions.
 
@@ -159,7 +161,7 @@ Goal:
 
 ---
 
-### Real-World Projects
+## Real-World Projects
 
 Build larger projects similar to software you might create personally or professionally.
 
@@ -177,16 +179,16 @@ Goal:
 
 ---
 
-## Exercise Philosophy
+# Exercise Philosophy
 
-Exercises in Python Mastery Path begin with realistic scenarios rather than abstract coding tasks.
+Exercises begin with realistic scenarios rather than abstract coding tasks.
 
 The goal is not merely to learn syntax.
 
 The goal is to understand:
 
-- Why a Python capability is useful
-- When a Python capability becomes useful
+- Why a capability is useful
+- When a capability becomes useful
 - How Python helps solve practical problems
 
 Rather than presenting exercises such as:
@@ -195,24 +197,24 @@ Rather than presenting exercises such as:
 Create a Path object.
 ```
 
-Exercises begin with realistic situations such as:
+Exercises begin with scenarios such as:
 
 ```text
-You have a notes file on your computer and want
-Python to work with that file.
+You have a notes file on your computer and need Python
+to work with that file.
 ```
 
 The intention is to make learners think:
 
-> "I've encountered that problem before."
+> I've encountered that problem before.
 
-or:
+or
 
-> "That sounds useful."
+> That sounds useful.
 
 rather than:
 
-> "Here's another coding challenge."
+> Here's another coding challenge.
 
 Every exercise should teach a capability through a practical problem.
 
@@ -236,7 +238,7 @@ Task
 
 ---
 
-## Exercise Structure
+# Exercise Structure
 
 Every exercise follows a consistent structure:
 
@@ -256,7 +258,7 @@ Why This Exercise Exists
 
 This consistency allows learners to focus on solving problems rather than learning different exercise formats.
 
-### Progressive Hints
+## Progressive Hints
 
 Exercises provide progressive hints:
 
@@ -270,13 +272,13 @@ Almost There
 Solution
 ```
 
-The goal is to encourage exploration and problem solving before revealing increasingly specific guidance.
-
 Hints and solutions are hidden behind collapsible sections so learners can choose how much help they need.
+
+The goal is to encourage exploration and problem solving before revealing increasingly specific guidance.
 
 ---
 
-## Capability Page Structure
+# Capability Page Structure
 
 Each capability page follows the same progression:
 
@@ -290,7 +292,7 @@ Compose
 Automate
 ```
 
-### Discover
+## Discover
 
 Learn the fundamental capability.
 
@@ -298,7 +300,7 @@ Goal:
 
 👉 Learn the capability.
 
-### Apply
+## Apply
 
 Use the capability in realistic situations.
 
@@ -306,7 +308,7 @@ Goal:
 
 👉 Use the capability.
 
-### Compose
+## Compose
 
 Combine multiple techniques to solve larger problems.
 
@@ -314,7 +316,7 @@ Goal:
 
 👉 Combine capabilities.
 
-### Automate
+## Automate
 
 Use the capability to solve repetitive problems.
 
@@ -326,11 +328,11 @@ This progression helps learners move from understanding a capability to using it
 
 ---
 
-## Module Structure
+# Current Module: pathlib
 
-Each module follows a consistent structure.
+The first module in Python Mastery Path focuses on filesystem operations using pathlib.
 
-Example:
+The module currently contains the following capability pages:
 
 ```text
 pathlib
@@ -345,45 +347,93 @@ pathlib
 └── Filesystem Automation
 ```
 
-Each capability is taught through the Discover → Apply → Compose → Automate progression.
+Each capability page includes exercises organized into:
+
+```text
+Discover
+    ↓
+Apply
+    ↓
+Compose
+    ↓
+Automate
+```
+
+with progressive hints, solutions, and explanations.
 
 ---
 
-## Current Progress
+# Current Progress
 
-### Project
+## Project Foundation
 
 ✅ GitHub Pages deployed
 
 ✅ MkDocs configured
 
-✅ Exercise template created
+✅ Site structure established
 
-✅ Capability page template created
+✅ Exercise template established
 
-✅ Module structure defined
+✅ Capability page template established
 
-✅ Learning philosophy established
+✅ Progressive hint system established
 
-### pathlib
+✅ Hidden solution system established
 
-✅ Module introduction
-
-✅ Capability structure defined
-
-✅ Creating Paths capability completed
-
-Current focus:
+✅ Capability progression established
 
 ```text
-pathlib
+Discover
     ↓
-Inspecting Paths
+Apply
+    ↓
+Compose
+    ↓
+Automate
 ```
 
 ---
 
-## Project Principles
+## pathlib Module
+
+✅ Module introduction
+
+✅ Capability overview
+
+✅ Creating Paths
+
+✅ Inspecting Paths
+
+✅ Reading Files
+
+✅ Writing Files
+
+✅ Finding Files
+
+✅ Manipulating Paths
+
+✅ Directory Operations
+
+✅ Filesystem Automation
+
+✅ Discover exercises
+
+✅ Apply exercises
+
+✅ Compose exercises
+
+✅ Automate exercises
+
+✅ Solutions added
+
+✅ Exercise explanations added
+
+The pathlib learning path is now structurally complete.
+
+---
+
+# Project Principles
 
 When adding content, prefer:
 
@@ -421,7 +471,31 @@ Avoid:
 
 ---
 
-## Long-Term Vision
+# Next Focus
+
+The pathlib module is now complete.
+
+The next step is to validate and refine the learning progression before expanding into additional modules.
+
+Planned future modules include:
+
+- shutil
+- json
+- csv
+- pickle
+- collections
+- datetime
+- itertools
+- functools
+- logging
+- argparse
+- subprocess
+
+The goal is to maintain the same standards established within the pathlib module.
+
+---
+
+# Long-Term Vision
 
 Python Mastery Path aims to become a practical roadmap for Python mastery.
 
@@ -429,14 +503,14 @@ The objective is not simply to complete exercises.
 
 The objective is to repeatedly practice concepts, modules, and projects until they become natural tools for solving real-world problems.
 
-The ultimate goal is to help developers move from:
+The ultimate goal is helping developers move from:
 
 ```text
-"I know Python."
+I know Python.
 ```
 
 to:
 
 ```text
-"I naturally use Python to solve problems."
+I naturally use Python to solve problems.
 ```
