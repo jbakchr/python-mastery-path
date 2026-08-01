@@ -55,9 +55,7 @@ Learn how to search for files and folders.
 
 ### Manipulating Paths
 
-Learn how to work with filenames and path components.
-
-🚧 Coming soon
+➡️ [Open Manipulating Files Exercises](./pathlib/manipulating-files.md).
 
 ### Directory Operations
 
