@@ -2,54 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://jbakchr.github.io/python-mastery-path/</loc>
-         <lastmod>2026-07-29</lastmod>
+         <lastmod>2026-08-01</lastmod>
     </url>
     <url>
          <loc>https://jbakchr.github.io/python-mastery-path/mini-projects/downloads-organizer/</loc>
-         <lastmod>2026-07-29</lastmod>
+         <lastmod>2026-08-01</lastmod>
     </url>
     <url>
          <loc>https://jbakchr.github.io/python-mastery-path/modules/json/</loc>
-         <lastmod>2026-07-29</lastmod>
+         <lastmod>2026-08-01</lastmod>
     </url>
     <url>
          <loc>https://jbakchr.github.io/python-mastery-path/modules/pathlib/</loc>
-         <lastmod>2026-07-29</lastmod>
+         <lastmod>2026-08-01</lastmod>
     </url>
     <url>
          <loc>https://jbakchr.github.io/python-mastery-path/modules/shutil/</loc>
-         <lastmod>2026-07-29</lastmod>
+         <lastmod>2026-08-01</lastmod>
     </url>
     <url>
          <loc>https://jbakchr.github.io/python-mastery-path/modules/pathlib/creating-paths/</loc>
-         <lastmod>2026-07-29</lastmod>
+         <lastmod>2026-08-01</lastmod>
+    </url>
+    <url>
+         <loc>https://jbakchr.github.io/python-mastery-path/modules/pathlib/finding-files/</loc>
+         <lastmod>2026-08-01</lastmod>
     </url>
     <url>
          <loc>https://jbakchr.github.io/python-mastery-path/modules/pathlib/inspecting-paths/</loc>
-         <lastmod>2026-07-29</lastmod>
+         <lastmod>2026-08-01</lastmod>
     </url>
     <url>
          <loc>https://jbakchr.github.io/python-mastery-path/modules/pathlib/reading-files/</loc>
-         <lastmod>2026-07-29</lastmod>
+         <lastmod>2026-08-01</lastmod>
     </url>
     <url>
          <loc>https://jbakchr.github.io/python-mastery-path/modules/pathlib/writing-files/</loc>
-         <lastmod>2026-07-29</lastmod>
+         <lastmod>2026-08-01</lastmod>
     </url>
     <url>
          <loc>https://jbakchr.github.io/python-mastery-path/real-world-projects/backup-tool/</loc>
-         <lastmod>2026-07-29</lastmod>
+         <lastmod>2026-08-01</lastmod>
     </url>
     <url>
          <loc>https://jbakchr.github.io/python-mastery-path/topics/dictionaries/</loc>
-         <lastmod>2026-07-29</lastmod>
+         <lastmod>2026-08-01</lastmod>
     </url>
     <url>
          <loc>https://jbakchr.github.io/python-mastery-path/topics/lists/</loc>
-         <lastmod>2026-07-29</lastmod>
+         <lastmod>2026-08-01</lastmod>
     </url>
     <url>
          <loc>https://jbakchr.github.io/python-mastery-path/topics/strings/</loc>
-         <lastmod>2026-07-29</lastmod>
+         <lastmod>2026-08-01</lastmod>
     </url>
 </urlset>

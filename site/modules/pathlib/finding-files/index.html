@@ -1,0 +1,2634 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn Python progressively through topics, modules, mini projects, and real-world projects.">
+      
+      
+      
+        <link rel="canonical" href="https://jbakchr.github.io/python-mastery-path/modules/pathlib/finding-files/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>pathlib - Writing Files - Python Mastery Path</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pathlib-writing-files" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Python Mastery Path" class="md-header__button md-logo" aria-label="Python Mastery Path" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python Mastery Path
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              pathlib - Writing Files
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jbakchr/python-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jbakchr/python-mastery-path
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Python Mastery Path" class="md-nav__button md-logo" aria-label="Python Mastery Path" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python Mastery Path
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jbakchr/python-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jbakchr/python-mastery-path
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topic Exercises
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topic Exercises
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../topics/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../topics/lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../topics/dictionaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dictionaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module Exercises
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Module Exercises
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pathlib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shutil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    shutil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mini Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mini Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mini-projects/downloads-organizer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Downloads Organizer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real-World Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Real-World Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../real-world-projects/backup-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backup Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-progression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Progression
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discover
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Discover">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-ff-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-FF-01
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-FF-01">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-ff-02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-FF-02
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-FF-02">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-ff-03" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-FF-03
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-FF-03">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apply
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pathlib-ff-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-FF-04
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-FF-04">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pathlib-ff-05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-FF-05
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-FF-05">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-ff-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-FF-06
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-FF-06">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-ff-07" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-FF-07
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-FF-07">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-tis-exercise-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why T*is Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-ff-08" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-FF-08
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-FF-08">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-thisexercise-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This*Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-ff-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-FF-09
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-FF-09">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-ff-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-FF-10
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-FF-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-ff-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-FF-11
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-FF-11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pathlib-ff-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PATHLIB-FF-12
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PATHLIB-FF-12">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#need-a-hint_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Need a Hint?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="pathlib-writing-files">pathlib - Writing Files<a class="headerlink" href="#pathlib-writing-files" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Finding files is one of the most common filesystem tasks.</p>
+<p>Developers frequently need to locate files before they can read, analyze, organize, copy, or process them.</p>
+<p>Examples include:</p>
+<ul>
+<li>Finding all Markdown files in a notes directory</li>
+<li>Locating Python files in a project</li>
+<li>Gathering log files for analysis</li>
+<li>Searching for configuration files</li>
+<li>Building automation tools that work across many files</li>
+</ul>
+<p>The pathlib module provides powerful ways to search directories using patterns and recursive searches.</p>
+<p>Mastering file discovery is an important step toward practical filesystem automation.</p>
+<hr />
+<h2 id="learning-progression">Learning Progression<a class="headerlink" href="#learning-progression" title="Permanent link">&para;</a></h2>
+<p>The exercises in this capability are organized into four stages:</p>
+<div class="highlight"><pre><span></span><code>Discover
+    ↓
+Apply
+    ↓
+Compose
+    ↓
+Automate
+</code></pre></div>
+<p>Each stage builds on the previous one, gradually moving from understanding a capability to using it in practical automation tasks.</p>
+<hr />
+<h2 id="discover"><strong>Discover</strong><a class="headerlink" href="#discover" title="Permanent link">&para;</a></h2>
+<h3 id="pathlib-ff-01">PATHLIB-FF-01<a class="headerlink" href="#pathlib-ff-01" title="Permanent link">&para;</a></h3>
+<h4 id="scenario">Scenario<a class="headerlink" href="#scenario" title="Permanent link">&para;</a></h4>
+<p>You have a directory containing several documents.</p>
+<p>Before you can read or process those files, you first need a way to discover which files exist inside the directory.</p>
+<p>A common first step is listing all files in a folder.</p>
+<h4 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h4>
+<p>Create a Path object representing a directory named:</p>
+<div class="highlight"><pre><span></span><code>documents
+</code></pre></div>
+<p>Print every item contained directly inside that directory.</p>
+<h4 id="success-criteria">Success Criteria<a class="headerlink" href="#success-criteria" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object for documents</li>
+<li>List all items inside the directory</li>
+<li>Print each item</li>
+</ul>
+<h4 id="need-a-hint">Need a Hint?<a class="headerlink" href="#need-a-hint" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Path objects provide a method for iterating over the contents of a directory.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Look for a method that returns each item immediately contained within a directory.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:
+<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span>
+</code></pre></div></p>
+<p>and loop through the results.</p>
+</details>
+<h4 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">documents</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;documents&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">documents</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists" title="Permanent link">&para;</a></h4>
+<p>Finding files starts with understanding how to explore a directory.</p>
+<p>Many real-world tasks begin by discovering what files are available before deciding which ones to process.</p>
+<p>Examples include:</p>
+<ul>
+<li>File organizers</li>
+<li>Backup tools</li>
+<li>Report generators</li>
+<li>Code analysis tools</li>
+</ul>
+<p>This exercise introduces the fundamental capability of listing directory contents.</p>
+<hr />
+<h3 id="pathlib-ff-02">PATHLIB-FF-02<a class="headerlink" href="#pathlib-ff-02" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_1">Scenario<a class="headerlink" href="#scenario_1" title="Permanent link">&para;</a></h4>
+<p>You are working in a directory containing many different file types:</p>
+<div class="highlight"><pre><span></span><code>notes.txt
+todo.txt
+report.pdf
+image.png
+</code></pre></div>
+<p>You only want to work with text files.</p>
+<p>Instead of processing every file, you'd like Python to find only files matching a specific pattern.</p>
+<h4 id="objective_1">Objective<a class="headerlink" href="#objective_1" title="Permanent link">&para;</a></h4>
+<p>Create a Path object for a directory named:</p>
+<div class="highlight"><pre><span></span><code>documents
+</code></pre></div>
+<p>Find and print all .txt files in the directory.</p>
+<h4 id="success-criteria_1">Success Criteria<a class="headerlink" href="#success-criteria_1" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Search for files ending in .txt</li>
+<li>Print each matching file</li>
+</ul>
+<h4 id="need-a-hint_1">Need a Hint?<a class="headerlink" href="#need-a-hint_1" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>pathlib supports wildcard patterns when searching for files.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>The wildcard <code>*</code> can represent any filename.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.txt&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="solution_1">Solution<a class="headerlink" href="#solution_1" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">documents</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;documents&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">documents</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.txt&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_1">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_1" title="Permanent link">&para;</a></h4>
+<p>Most programs don't work with every file in a directory.</p>
+<p>They typically target files of a specific type.</p>
+<p>Examples include:</p>
+<ul>
+<li>Finding Markdown documentation</li>
+<li>Locating Python source files</li>
+<li>Processing CSV exports</li>
+<li>Searching log files</li>
+</ul>
+<p>Pattern-based searches make it possible to locate only the files you care about.</p>
+<hr />
+<h3 id="pathlib-ff-03">PATHLIB-FF-03<a class="headerlink" href="#pathlib-ff-03" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_2">Scenario<a class="headerlink" href="#scenario_2" title="Permanent link">&para;</a></h4>
+<p>Your notes are organized into many nested folders:</p>
+<div class="highlight"><pre><span></span><code>notes/
+├── work/
+├── personal/
+├── learning/
+└── archive/
+</code></pre></div>
+<p>You want to find every Markdown file regardless of which folder it lives in.</p>
+<p>Searching a single directory is no longer enough.</p>
+<p>You need to search an entire directory tree.</p>
+<h4 id="objective_2">Objective<a class="headerlink" href="#objective_2" title="Permanent link">&para;</a></h4>
+<p>Create a Path object representing:</p>
+<div class="highlight"><pre><span></span><code>notes
+</code></pre></div>
+<p>Find and print every Markdown file (.md) within the directory and all of its subdirectories.</p>
+<h4 id="success-criteria_2">Success Criteria<a class="headerlink" href="#success-criteria_2" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Search recursively through subdirectories</li>
+<li>Find all .md files</li>
+<li>Print each result</li>
+</ul>
+<h4 id="need-a-hint_2">Need a Hint?<a class="headerlink" href="#need-a-hint_2" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>pathlib provides a recursive version of <code>glob()</code>.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Recursive searches look inside subdirectories as well as the current directory.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.md&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="solution_2">Solution<a class="headerlink" href="#solution_2" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">notes</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;notes&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">notes</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.md&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_2">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_2" title="Permanent link">&para;</a></h4>
+<p>Many real-world projects store files across multiple folders.</p>
+<p>Examples include:</p>
+<ul>
+<li>Source code repositories</li>
+<li>Documentation sites</li>
+<li>Note-taking systems</li>
+<li>Log archives</li>
+</ul>
+<p>Recursive searching is one of the most powerful capabilities in pathlib because it allows programs to discover files throughout an entire directory structure.</p>
+<hr />
+<h2 id="apply"><strong>Apply</strong><a class="headerlink" href="#apply" title="Permanent link">&para;</a></h2>
+<p>🚧 Section Needs Elaboration (See creating-files.md for example)</p>
+<hr />
+<h2 id="pathlib-ff-04">PATHLIB-FF-04<a class="headerlink" href="#pathlib-ff-04" title="Permanent link">&para;</a></h2>
+<h3 id="scenario_3">Scenario<a class="headerlink" href="#scenario_3" title="Permanent link">&para;</a></h3>
+<p>You are troubleshooting an application that stores log files in multiple folders.</p>
+<p>You need to locate every log file before you can investigate what happened.</p>
+<p>Example files:</p>
+<div class="highlight"><pre><span></span><code>logs/
+├── app.log
+├── database.log
+├── archive/
+│   └── old.log
+└── errors/
+    └── latest.log
+</code></pre></div>
+<h3 id="objective_3">Objective<a class="headerlink" href="#objective_3" title="Permanent link">&para;</a></h3>
+<p>Create a <code>Path</code> object representing:</p>
+<div class="highlight"><pre><span></span><code>logs
+</code></pre></div>
+<p>Find every <code>.log</code> file within the directory and all of its subdirectories.</p>
+<p>Print each matching file.</p>
+<h3 id="success-criteria_3">Success Criteria<a class="headerlink" href="#success-criteria_3" title="Permanent link">&para;</a></h3>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object for <code>logs</code></li>
+<li>Search recursively through all subdirectories</li>
+<li>Find every <code>.log</code> file</li>
+<li>Print each matching path</li>
+</ul>
+<h3 id="need-a-hint_3">Need a Hint?<a class="headerlink" href="#need-a-hint_3" title="Permanent link">&para;</a></h3>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>The log files may exist in nested directories.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>A recursive search will look inside the directory and all subdirectories.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.log&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h3 id="solution_3">Solution<a class="headerlink" href="#solution_3" title="Permanent link">&para;</a></h3>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">logs</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;logs&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">logs</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.log&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h3 id="why-this-exercise-exists_3">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_3" title="Permanent link">&para;</a></h3>
+<p>Log files are commonly distributed across several directories.</p>
+<p>Many debugging, monitoring, and reporting tools begin by locating all relevant log files before analyzing their contents.</p>
+<p>This exercise reinforces recursive file discovery in a realistic troubleshooting scenario.</p>
+<hr />
+<h2 id="pathlib-ff-05">PATHLIB-FF-05<a class="headerlink" href="#pathlib-ff-05" title="Permanent link">&para;</a></h2>
+<h3 id="scenario_4">Scenario<a class="headerlink" href="#scenario_4" title="Permanent link">&para;</a></h3>
+<p>You are exploring a Python project and want to understand its structure.</p>
+<p>Before reading the code, you would like to see every Python source file in the repository.</p>
+<h3 id="objective_4">Objective<a class="headerlink" href="#objective_4" title="Permanent link">&para;</a></h3>
+<p>Create a <code>Path</code> object representing:</p>
+<div class="highlight"><pre><span></span><code>project
+</code></pre></div>
+<p>Find all Python files (<code>.py</code>) located anywhere within the project directory.</p>
+<p>Print each file that is found.</p>
+<h3 id="success-criteria_4">Success Criteria<a class="headerlink" href="#success-criteria_4" title="Permanent link">&para;</a></h3>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Search all subdirectories</li>
+<li>Find every <code>.py</code> file</li>
+<li>Print each matching file</li>
+</ul>
+<h3 id="need-a-hint_4">Need a Hint?<a class="headerlink" href="#need-a-hint_4" title="Permanent link">&para;</a></h3>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Python files use a specific file extension.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Use a recursive search pattern that matches Python files.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.py&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h3 id="solution_4">Solution<a class="headerlink" href="#solution_4" title="Permanent link">&para;</a></h3>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;project&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.py&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h3 id="why-this-exercise-exists_4">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_4" title="Permanent link">&para;</a></h3>
+<p>Source code often spans many directories.</p>
+<p>Tools such as documentation generators, linters, code analyzers, and testing utilities frequently begin by locating Python files across an entire project.</p>
+<p>This exercise demonstrates how file discovery supports software development workflows.</p>
+<hr />
+<h3 id="pathlib-ff-06">PATHLIB-FF-06<a class="headerlink" href="#pathlib-ff-06" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_5">Scenario<a class="headerlink" href="#scenario_5" title="Permanent link">&para;</a></h4>
+<p>You maintain a collection of notes written in Markdown.</p>
+<p>The notes are organized into categories such as:</p>
+<div class="highlight"><pre><span></span><code>notes/
+├── work/
+├── personal/
+├── learning/
+└── archive/
+</code></pre></div>
+<p>You would like to generate a list of every Markdown document you have written.</p>
+<h4 id="objective_5">Objective<a class="headerlink" href="#objective_5" title="Permanent link">&para;</a></h4>
+<p>Create a <code>Path</code> object representing:</p>
+<div class="highlight"><pre><span></span><code>notes
+</code></pre></div>
+<p>Find all Markdown files (<code>.md</code>) contained within the directory and its subdirectories.</p>
+<p>Print each matching file.</p>
+<h4 id="success-criteria_5">Success Criteria<a class="headerlink" href="#success-criteria_5" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Search recursively</li>
+<li>Find every <code>.md</code> file</li>
+<li>Print each matching path</li>
+</ul>
+<h4 id="need-a-hint_5">Need a Hint?<a class="headerlink" href="#need-a-hint_5" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Markdown files share the same file extension.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Use a search pattern that matches all Markdown files.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.md&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="solution_5">Solution<a class="headerlink" href="#solution_5" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">notes</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;notes&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">notes</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.md&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_5">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_5" title="Permanent link">&para;</a></h4>
+<p>Documentation systems, knowledge bases, and note-taking tools often need to discover Markdown files before they can process them.</p>
+<p>This exercise reinforces the idea that file discovery is frequently the first step in larger automation tasks.
+``</p>
+<hr />
+<h2 id="compose"><strong>Compose</strong><a class="headerlink" href="#compose" title="Permanent link">&para;</a></h2>
+<p>🚧 Section Needs Elaboration (See creating-files.md for example)</p>
+<hr />
+<h3 id="pathlib-ff-07">PATHLIB-FF-07<a class="headerlink" href="#pathlib-ff-07" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_6">Scenario<a class="headerlink" href="#scenario_6" title="Permanent link">&para;</a></h4>
+<p>You are reviewing a project before sharing it with a teammate.</p>
+<p>You want a quick overview of the different types of files contained in the repository.</p>
+<p>Specifically, you would like to identify:</p>
+<ul>
+<li>Python files</li>
+<li>Markdown files</li>
+<li>JSON files</li>
+</ul>
+<h4 id="objective_6">Objective<a class="headerlink" href="#objective_6" title="Permanent link">&para;</a></h4>
+<p>Create a <code>Path</code> object representing:</p>
+<div class="highlight"><pre><span></span><code>project
+</code></pre></div>
+<p>Find all:</p>
+<ul>
+<li><code>.py</code> files</li>
+<li><code>.md</code> files</li>
+<li><code>.json</code> files</li>
+</ul>
+<p>Print the files grouped by type.</p>
+<h4 id="success-criteria_6">Success Criteria<a class="headerlink" href="#success-criteria_6" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Search recursively through the project</li>
+<li>Locate Python, Markdown, and JSON files</li>
+<li>Print the results grouped by file type</li>
+</ul>
+<h4 id="need-a-hint_6">Need a Hint?<a class="headerlink" href="#need-a-hint_6" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>You can perform more than one search on the same directory.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Consider using <code>rglob()</code> with a different pattern for each file type.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Search separately for:</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;*.py&quot;</span>
+<span class="s2">&quot;*.md&quot;</span>
+<span class="s2">&quot;*.json&quot;</span>
+</code></pre></div>
+</details>
+<h4 id="solution_6">Solution<a class="headerlink" href="#solution_6" title="Permanent link">&para;</a></h4>
+<p>???*success "Show Solution"</p>
+<pre><code>```py*hon
+from pathlib import Path
+</code></pre>
+<ul>
+<li>project = Path("project")</li>
+</ul>
+<p><em>rint("Python files:")
+  for file</em>in project.rglob("<em>.py"):
+  </em>rint(file)</p>
+<p>print("\nMarkdown <em>iles:")
+  for file in project.rg</em>ob("*.md"):
+  print(file)</p>
+<ul>
+<li>print("\nJSON files:")
+  for f<em>le in project.rglob("</em>.json"):</li>
+<li>
+<p>print(file)</p>
+<p>```</p>
+</li>
+</ul>
+<h4 id="why-tis-exercise-exists">Why T*is Exercise Exists<a class="headerlink" href="#why-tis-exercise-exists" title="Permanent link">&para;</a></h4>
+<p>Real projects <em>ften contain many different file t</em>pes.</p>
+<p>Before building automation, <em>evelopers frequently need to under</em>tand what files exist and how they*are organized.</p>
+<p>This exercise comb<em>nes multiple file searches to buil</em> a broader picture of a directory *tructure.</p>
+<hr />
+<h3 id="pathlib-ff-08">PATHLIB-FF-08<a class="headerlink" href="#pathlib-ff-08" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_7">Scenario<a class="headerlink" href="#scenario_7" title="Permanent link">&para;</a></h4>
+<p>You are organizing a *arge notes collection.</p>
+<p>Your notes<em>are stored as Markdown files insid</em> many different folders.</p>
+<p>You woul* like to see both:</p>
+<ul>
+<li>the file nam*</li>
+<li>the folder containing the file
+  <em>for every note that is discovered.</em></li>
+</ul>
+<h4 id="objective_7">Objective<a class="headerlink" href="#objective_7" title="Permanent link">&para;</a></h4>
+<p>Create a <code>Path</code> ob*ect representing:</p>
+<div class="highlight"><pre><span></span><code>notes
+</code></pre></div>
+<p>Find all Markdown files within *he directory tree.</p>
+<p>For each file,*print:</p>
+<ul>
+<li>the file name</li>
+<li>its pare*t directory</li>
+</ul>
+<h4 id="success-criteria_7">Success Criteria<a class="headerlink" href="#success-criteria_7" title="Permanent link">&para;</a></h4>
+<p>*Your program should:</p>
+<ul>
+<li>Search rec*rsively for Markdown files</li>
+<li>Acces* information about each file</li>
+<li>Pri*t the file name</li>
+<li>Print the parent*directory</li>
+</ul>
+<h4 id="need-a-hint_7">Need a Hint?<a class="headerlink" href="#need-a-hint_7" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>A found file i* still a <code>Path</code> object.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Path objects ex<em>ose useful attributes that describ</em> the file and its location.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Look at:</p>
+<div class="highlight"><pre><span></span><code><span class="n">file</span><span class="o">.</span><span class="n">name</span>
+<span class="n">file</span><span class="o">.*</span><span class="n">arent</span>
+</code></pre></div>
+</details>
+<h3 id="solution_7">Solution<a class="headerlink" href="#solution_7" title="Permanent link">&para;</a></h3>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">notes</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;notes&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">notes</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.md&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File: </span><span class="si">{</span><span class="n">file</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Folder: </span><span class="si">{</span><span class="n">file</span><span class="o">.</span><span class="n">parent</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<h4 id="why-thisexercise-exists">Why This*Exercise Exists<a class="headerlink" href="#why-thisexercise-exists" title="Permanent link">&para;</a></h4>
+<p>Finding files is *sually only the first step.</p>
+<p>Once a file has been discovered, developors often need information about the file itself.</p>
+<p>This exercise combines file discovery with path inspection, reinforcing earlier capabilit*es from the module.</p>
+<hr />
+<h3 id="pathlib-ff-09">PATHLIB-FF-09<a class="headerlink" href="#pathlib-ff-09" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_8">Scenario<a class="headerlink" href="#scenario_8" title="Permanent link">&para;</a></h4>
+<p>You are responsible for maintaining a documentation site.</p>
+<p>Before publishing the site, you want to know how many Markdown documents currently exist.</p>
+<p>The files may be scattered throughout many subdirectories.</p>
+<h4 id="objective_8">Objective<a class="headerlink" href="#objective_8" title="Permanent link">&para;</a></h4>
+<p>Create a <code>Path</code> object representing:</p>
+<div class="highlight"><pre><span></span><code>docs
+</code></pre></div>
+<p>Find all Markdown files and display the total number found.</p>
+<h4 id="success-criteria_8">Success Criteria<a class="headerlink" href="#success-criteria_8" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Search recursively for Markdown files</li>
+<li>Count how many files were found</li>
+<li>Print the total count</li>
+</ul>
+<h4 id="need-a-hint_8">Need a Hint?<a class="headerlink" href="#need-a-hint_8" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>A recursive search produces multiple Path objects.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>You may need to convert the results into a collection before counting them.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Consider:</p>
+<div class="highlight"><pre><span></span><code><span class="n">files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.md&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>Then use:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="solution_8">Solution<a class="headerlink" href="#solution_8" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">docs</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;docs&quot;</span><span class="p">)</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">docs</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.md&quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Markdown files: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_6">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_6" title="Permanent link">&para;</a></h4>
+<p>Many automation tasks involve gathering information rather than simply listing files.</p>
+<p>Examples include:</p>
+<ul>
+<li>Counting documentation pages</li>
+<li>Measuring project size</li>
+<li>Generating reports</li>
+<li>Tracking content growth</li>
+</ul>
+<p>This exercise combines file discovery with basic reporting and prepares learners for the larger automation exercises that follow.</p>
+<hr />
+<h2 id="automate"><strong>Automate</strong><a class="headerlink" href="#automate" title="Permanent link">&para;</a></h2>
+<p>🚧 Section Needs Elaboration (See creating-files.md for example)</p>
+<hr />
+<h3 id="pathlib-ff-10">PATHLIB-FF-10<a class="headerlink" href="#pathlib-ff-10" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_9">Scenario<a class="headerlink" href="#scenario_9" title="Permanent link">&para;</a></h4>
+<p>You maintain a personal knowledge base containing hundreds of notes spread across many folders.</p>
+<p>Before making changes to the collection, you want a quick report showing all Markdown files currently stored in the knowledge base.</p>
+<p>Instead of manually searching through folders, you decide to automate the process.</p>
+<h4 id="objective_9">Objective<a class="headerlink" href="#objective_9" title="Permanent link">&para;</a></h4>
+<p>Create a program that:</p>
+<ul>
+<li>Searches a directory named <code>notes</code></li>
+<li>Finds all Markdown files (<code>.md</code>)</li>
+<li>Prints each file that was found</li>
+<li>Displays the total number of Markdown files</li>
+</ul>
+<h4 id="success-criteria_9">Success Criteria<a class="headerlink" href="#success-criteria_9" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Create a Path object</li>
+<li>Search recursively for Markdown files</li>
+<li>Print each matching file</li>
+<li>Display the total file count</li>
+</ul>
+<h4 id="need-a-hint_9">Need a Hint?<a class="headerlink" href="#need-a-hint_9" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>You need both the list of files and the number of files found.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Consider storing the search results before printing them.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">notes</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.md&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>Then print the files and use <code>len(files)</code>.</p>
+</details>
+<h4 id="solution_9">Solution<a class="headerlink" href="#solution_9" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">notes</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;notes&quot;</span><span class="p">)</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">notes</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.md&quot;</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total Markdown files: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_7">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_7" title="Permanent link">&para;</a></h4>
+<p>Automation often begins with generating useful reports.</p>
+<p>Before files can be analyzed, organized, copied, or modified, they first need to be discovered.</p>
+<p>This exercise combines recursive searching and reporting into a simple but practical automation task.</p>
+<hr />
+<h3 id="pathlib-ff-11">PATHLIB-FF-11<a class="headerlink" href="#pathlib-ff-11" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_10">Scenario<a class="headerlink" href="#scenario_10" title="Permanent link">&para;</a></h4>
+<p>You are cleaning up a project repository and want to identify large files that may not belong in source control.</p>
+<p>Manually inspecting every file would be slow and error-prone.</p>
+<p>You decide to automate the process.</p>
+<h4 id="objective_10">Objective<a class="headerlink" href="#objective_10" title="Permanent link">&para;</a></h4>
+<p>Create a program that:</p>
+<ul>
+<li>Searches a directory named <code>project</code></li>
+<li>Finds all files recursively</li>
+<li>Prints files larger than 1 MB</li>
+</ul>
+<h4 id="success-criteria_10">Success Criteria<a class="headerlink" href="#success-criteria_10" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Search the entire directory tree</li>
+<li>Inspect each discovered file</li>
+<li>Check the file size</li>
+<li>Print files larger than 1 MB</li>
+</ul>
+<h4 id="need-a-hint_10">Need a Hint?<a class="headerlink" href="#need-a-hint_10" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>After finding a file, pathlib can provide information about it.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>There is a method that returns file metadata, including its size.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">file</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span>
+</code></pre></div>
+<p>to retrieve the file size in bytes.</p>
+</details>
+<h4 id="solution_10">Solution<a class="headerlink" href="#solution_10" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;project&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span> <span class="o">&gt;</span> <span class="mi">1_000_000</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_8">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_8" title="Permanent link">&para;</a></h4>
+<p>Many practical automation tasks involve finding files and then filtering them based on additional criteria.</p>
+<p>Examples include:</p>
+<ul>
+<li>Identifying large files</li>
+<li>Finding old files</li>
+<li>Locating files that should be archived</li>
+<li>Checking repository health</li>
+</ul>
+<p>This exercise combines file discovery with file inspection to solve a realistic maintenance problem.</p>
+<hr />
+<h3 id="pathlib-ff-12">PATHLIB-FF-12<a class="headerlink" href="#pathlib-ff-12" title="Permanent link">&para;</a></h3>
+<h4 id="scenario_11">Scenario<a class="headerlink" href="#scenario_11" title="Permanent link">&para;</a></h4>
+<p>You are creating a simple repository scanner.</p>
+<p>Before exploring a codebase, you would like a quick summary of the types of files it contains.</p>
+<p>Specifically, you want to know how many:</p>
+<ul>
+<li>Python files</li>
+<li>Markdown files</li>
+<li>JSON files</li>
+</ul>
+<p>exist within the repository.</p>
+<h4 id="objective_11">Objective<a class="headerlink" href="#objective_11" title="Permanent link">&para;</a></h4>
+<p>Create a program that:</p>
+<ul>
+<li>Searches a directory named <code>repository</code></li>
+<li>Counts all <code>.py</code> files</li>
+<li>Counts all <code>.md</code> files</li>
+<li>Counts all <code>.json</code> files</li>
+<li>Prints a summary report</li>
+</ul>
+<h4 id="success-criteria_11">Success Criteria<a class="headerlink" href="#success-criteria_11" title="Permanent link">&para;</a></h4>
+<p>Your program should:</p>
+<ul>
+<li>Search recursively</li>
+<li>Count multiple file types</li>
+<li>Print a readable report</li>
+</ul>
+<p>Example output:</p>
+<div class="highlight"><pre><span></span><code>Python files: 15
+Markdown files: 8
+JSON files: 3
+</code></pre></div>
+<h4 id="need-a-hint_11">Need a Hint?<a class="headerlink" href="#need-a-hint_11" title="Permanent link">&para;</a></h4>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Each file type can be searched independently.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Use a separate recursive search for each extension.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Store the results in lists and use:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">len</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+<p>to calculate the counts.</p>
+</details>
+<h4 id="solution_11">Solution<a class="headerlink" href="#solution_11" title="Permanent link">&para;</a></h4>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">repository</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;repository&quot;</span><span class="p">)</span>
+
+<span class="n">python_files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">repository</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.py&quot;</span><span class="p">))</span>
+<span class="n">markdown_files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">repository</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.md&quot;</span><span class="p">))</span>
+<span class="n">json_files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">repository</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.json&quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Python files: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">python_files</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Markdown files: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">markdown_files</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;JSON files: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">json_files</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_9">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_9" title="Permanent link">&para;</a></h4>
+<p>Many developer tools begin by scanning a directory and building an inventory of files.</p>
+<p>Examples include:</p>
+<ul>
+<li>Documentation generators</li>
+<li>Static analysis tools</li>
+<li>Repository dashboards</li>
+<li>Build systems</li>
+</ul>
+<p>This exercise feels like the first step toward a real tool rather than a standalone exercise.</p>
+<p>It combines recursive searching, filtering, counting, and reporting into a practical filesystem automation task.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
