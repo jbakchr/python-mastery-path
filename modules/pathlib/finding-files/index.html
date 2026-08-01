@@ -1334,10 +1334,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#why-tis-exercise-exists" class="md-nav__link">
+  <a href="#why-this-exercise-exists_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why T*is Exercise Exists
+        Why This Exercise Exists
       
     </span>
   </a>
@@ -1423,10 +1423,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-thisexercise-exists" class="md-nav__link">
+  <a href="#why-this-exercise-exists_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why This*Exercise Exists
+        Why This Exercise Exists
       
     </span>
   </a>
@@ -1506,7 +1506,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#why-this-exercise-exists_6" class="md-nav__link">
+  <a href="#why-this-exercise-exists_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         Why This Exercise Exists
@@ -1606,7 +1606,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#why-this-exercise-exists_7" class="md-nav__link">
+  <a href="#why-this-exercise-exists_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         Why This Exercise Exists
@@ -1689,7 +1689,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#why-this-exercise-exists_8" class="md-nav__link">
+  <a href="#why-this-exercise-exists_10" class="md-nav__link">
     <span class="md-ellipsis">
       
         Why This Exercise Exists
@@ -1772,7 +1772,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#why-this-exercise-exists_9" class="md-nav__link">
+  <a href="#why-this-exercise-exists_11" class="md-nav__link">
     <span class="md-ellipsis">
       
         Why This Exercise Exists
@@ -2234,74 +2234,75 @@ image.png
 </code></pre></div>
 </details>
 <h4 id="solution_6">Solution<a class="headerlink" href="#solution_6" title="Permanent link">&para;</a></h4>
-<p>???*success "Show Solution"</p>
-<pre><code>```py*hon
-from pathlib import Path
-</code></pre>
-<ul>
-<li>project = Path("project")</li>
-</ul>
-<p><em>rint("Python files:")
-  for file</em>in project.rglob("<em>.py"):
-  </em>rint(file)</p>
-<p>print("\nMarkdown <em>iles:")
-  for file in project.rg</em>ob("*.md"):
-  print(file)</p>
-<ul>
-<li>print("\nJSON files:")
-  for f<em>le in project.rglob("</em>.json"):</li>
-<li>
-<p>print(file)</p>
-<p>```</p>
-</li>
-</ul>
-<h4 id="why-tis-exercise-exists">Why T*is Exercise Exists<a class="headerlink" href="#why-tis-exercise-exists" title="Permanent link">&para;</a></h4>
-<p>Real projects <em>ften contain many different file t</em>pes.</p>
-<p>Before building automation, <em>evelopers frequently need to under</em>tand what files exist and how they*are organized.</p>
-<p>This exercise comb<em>nes multiple file searches to buil</em> a broader picture of a directory *tructure.</p>
+<details class="success">
+<summary>Show Solution</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;project&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python files:&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.py&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Markdown files:&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;\*.md&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">JSON files:&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">project</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;*.json&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<h4 id="why-this-exercise-exists_6">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_6" title="Permanent link">&para;</a></h4>
+<p>Real projects often contain many different file types.</p>
+<p>Before building automation, developers frequently need to understand what files exist and how they are organized.</p>
+<p>This exercise combines multiple file searches to build a broader picture of a directory structure.</p>
 <hr />
 <h3 id="pathlib-ff-08">PATHLIB-FF-08<a class="headerlink" href="#pathlib-ff-08" title="Permanent link">&para;</a></h3>
 <h4 id="scenario_7">Scenario<a class="headerlink" href="#scenario_7" title="Permanent link">&para;</a></h4>
-<p>You are organizing a *arge notes collection.</p>
+<p>You are organizing a large notes collection.</p>
 <p>Your notes<em>are stored as Markdown files insid</em> many different folders.</p>
-<p>You woul* like to see both:</p>
+<p>You would like to see both:</p>
 <ul>
-<li>the file nam*</li>
+<li>the file name</li>
 <li>the folder containing the file
   <em>for every note that is discovered.</em></li>
 </ul>
 <h4 id="objective_7">Objective<a class="headerlink" href="#objective_7" title="Permanent link">&para;</a></h4>
-<p>Create a <code>Path</code> ob*ect representing:</p>
+<p>Create a <code>Path</code> object representing:</p>
 <div class="highlight"><pre><span></span><code>notes
 </code></pre></div>
-<p>Find all Markdown files within *he directory tree.</p>
-<p>For each file,*print:</p>
+<p>Find all Markdown files within the directory tree.</p>
+<p>For each file, print:</p>
 <ul>
 <li>the file name</li>
-<li>its pare*t directory</li>
+<li>its parent directory</li>
 </ul>
 <h4 id="success-criteria_7">Success Criteria<a class="headerlink" href="#success-criteria_7" title="Permanent link">&para;</a></h4>
-<p>*Your program should:</p>
+<p>Your program should:</p>
 <ul>
-<li>Search rec*rsively for Markdown files</li>
-<li>Acces* information about each file</li>
-<li>Pri*t the file name</li>
-<li>Print the parent*directory</li>
+<li>Search recursively for Markdown files</li>
+<li>Access information about each file</li>
+<li>Print the file name</li>
+<li>Print the parent directory</li>
 </ul>
 <h4 id="need-a-hint_7">Need a Hint?<a class="headerlink" href="#need-a-hint_7" title="Permanent link">&para;</a></h4>
 <details class="tip">
 <summary>Small Hint</summary>
-<p>A found file i* still a <code>Path</code> object.</p>
+<p>A found file is still a <code>Path</code> object.</p>
 </details>
 <details class="tip">
 <summary>Stronger Hint</summary>
-<p>Path objects ex<em>ose useful attributes that describ</em> the file and its location.</p>
+<p>Path objects expose useful attributes that describe the file and its location.</p>
 </details>
 <details class="tip">
 <summary>Almost There</summary>
 <p>Look at:</p>
 <div class="highlight"><pre><span></span><code><span class="n">file</span><span class="o">.</span><span class="n">name</span>
-<span class="n">file</span><span class="o">.*</span><span class="n">arent</span>
+<span class="n">file</span><span class="o">.</span><span class="n">parent</span>
 </code></pre></div>
 </details>
 <h3 id="solution_7">Solution<a class="headerlink" href="#solution_7" title="Permanent link">&para;</a></h3>
@@ -2317,10 +2318,10 @@ from pathlib import Path
     <span class="nb">print</span><span class="p">()</span>
 </code></pre></div>
 </details>
-<h4 id="why-thisexercise-exists">Why This*Exercise Exists<a class="headerlink" href="#why-thisexercise-exists" title="Permanent link">&para;</a></h4>
-<p>Finding files is *sually only the first step.</p>
+<h4 id="why-this-exercise-exists_7">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_7" title="Permanent link">&para;</a></h4>
+<p>Finding files is usually only the first step.</p>
 <p>Once a file has been discovered, developors often need information about the file itself.</p>
-<p>This exercise combines file discovery with path inspection, reinforcing earlier capabilit*es from the module.</p>
+<p>This exercise combines file discovery with path inspection, reinforcing earlier capabilities from the module.</p>
 <hr />
 <h3 id="pathlib-ff-09">PATHLIB-FF-09<a class="headerlink" href="#pathlib-ff-09" title="Permanent link">&para;</a></h3>
 <h4 id="scenario_8">Scenario<a class="headerlink" href="#scenario_8" title="Permanent link">&para;</a></h4>
@@ -2369,7 +2370,7 @@ from pathlib import Path
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total Markdown files: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 </details>
-<h4 id="why-this-exercise-exists_6">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_6" title="Permanent link">&para;</a></h4>
+<h4 id="why-this-exercise-exists_8">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_8" title="Permanent link">&para;</a></h4>
 <p>Many automation tasks involve gathering information rather than simply listing files.</p>
 <p>Examples include:</p>
 <ul>
@@ -2435,7 +2436,7 @@ from pathlib import Path
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total Markdown files: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 </details>
-<h4 id="why-this-exercise-exists_7">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_7" title="Permanent link">&para;</a></h4>
+<h4 id="why-this-exercise-exists_9">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_9" title="Permanent link">&para;</a></h4>
 <p>Automation often begins with generating useful reports.</p>
 <p>Before files can be analyzed, organized, copied, or modified, they first need to be discovered.</p>
 <p>This exercise combines recursive searching and reporting into a simple but practical automation task.</p>
@@ -2489,7 +2490,7 @@ from pathlib import Path
             <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 </code></pre></div>
 </details>
-<h4 id="why-this-exercise-exists_8">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_8" title="Permanent link">&para;</a></h4>
+<h4 id="why-this-exercise-exists_10">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_10" title="Permanent link">&para;</a></h4>
 <p>Many practical automation tasks involve finding files and then filtering them based on additional criteria.</p>
 <p>Examples include:</p>
 <ul>
@@ -2564,7 +2565,7 @@ JSON files: 3
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;JSON files: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">json_files</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 </details>
-<h4 id="why-this-exercise-exists_9">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_9" title="Permanent link">&para;</a></h4>
+<h4 id="why-this-exercise-exists_11">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_11" title="Permanent link">&para;</a></h4>
 <p>Many developer tools begin by scanning a directory and building an inventory of files.</p>
 <p>Examples include:</p>
 <ul>
