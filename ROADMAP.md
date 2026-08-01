@@ -2,7 +2,7 @@
 
 Python Mastery Path is a long-term project focused on helping developers progressively master Python through topics, modules, mini projects, and real-world projects.
 
-This roadmap exists to help guide future development and prioritize the most valuable content.
+This roadmap exists to guide development and prioritize the content that provides the greatest learning value.
 
 ---
 
@@ -44,13 +44,27 @@ Automate
 
 ---
 
-## pathlib
+## pathlib Module
 
 ✅ Module introduction
 
-✅ Creating Paths capability page
+✅ Capability overview
 
-✅ Creating Paths exercises
+✅ Creating Paths
+
+✅ Inspecting Paths
+
+✅ Reading Files
+
+✅ Writing Files
+
+✅ Finding Files
+
+✅ Manipulating Paths
+
+✅ Directory Operations
+
+✅ Filesystem Automation
 
 ✅ Discover exercises
 
@@ -60,16 +74,22 @@ Automate
 
 ✅ Automate exercises
 
-✅ Solutions added
+✅ Progressive hints
 
-✅ Exercise explanations added
+✅ Solutions
+
+✅ Exercise explanations
+
+The pathlib module is now structurally complete.
 
 Current focus:
 
 ```text
-pathlib
+Validate
     ↓
-Inspecting Paths
+Refine
+    ↓
+Expand
 ```
 
 ---
@@ -93,7 +113,7 @@ over:
 ```text
 Themes
 Styling
-Visual polish
+Visual Polish
 Features
 ```
 
@@ -101,47 +121,33 @@ The primary value of Python Mastery Path is the learning content.
 
 ---
 
-# Phase 1 - Establish The Foundation
+# Phase 1 - Validate The Foundation
 
 Goal:
 
-Create the first complete module and validate the overall learning approach.
+Validate the pathlib learning experience before expanding into additional modules.
 
----
-
-## pathlib
-
-### Creating Paths
+### pathlib
 
 ✅ Complete
 
-### Inspecting Paths
+Validation activities:
 
-✅ Complete
+- Review exercise progression
+- Improve scenarios
+- Reduce overlap between exercises
+- Improve hints
+- Improve explanations
+- Identify missing capabilities
+- Identify weak exercises
+- Improve navigation
 
-### Reading Files
+Success Criteria:
 
-✅ Complete
-
-### Writing Files
-
-✅ Complete
-
-### Finding Files
-
-✅ Complete
-
-### Manipulating Paths
-
-✅ Complete
-
-### Directory Operations
-
-✅ Complete
-
-### Filesystem Automation
-
-✅ Complete
+- Every capability feels useful
+- Progression feels natural
+- Exercises become gradually more realistic
+- Discover → Apply → Compose → Automate works consistently
 
 ---
 
@@ -149,15 +155,15 @@ Create the first complete module and validate the overall learning approach.
 
 Goal:
 
-Learn practical filesystem automation by combining related modules.
+Expand filesystem skills beyond pathlib.
 
----
-
-## pathlib
+### pathlib
 
 ✅ Complete
 
-## shutil
+### shutil
+
+Planned:
 
 - Module introduction
 - Capability pages
@@ -166,7 +172,9 @@ Learn practical filesystem automation by combining related modules.
 - Compose exercises
 - Automate exercises
 
-## json
+### json
+
+Planned:
 
 - Module introduction
 - Capability pages
@@ -175,251 +183,31 @@ Learn practical filesystem automation by combining related modules.
 - Compose exercises
 - Automate exercises
 
----
+Success Criteria:
 
-# Phase 3 - Data And Python Objects
-
-Goal:
-
-Learn how Python represents, stores, and structures data.
-
-Modules:
-
-## pickle
-
-- Module introduction
-- Capability pages
-- Exercises
-
-## csv
-
-- Module introduction
-- Capability pages
-- Exercises
-
-## collections
-
-- Module introduction
-- Capability pages
-- Exercises
-
-## dataclasses
-
-- Module introduction
-- Capability pages
-- Exercises
-
----
-
-# Phase 4 - Everyday Utility Modules
-
-Goal:
-
-Master modules that frequently appear in real-world projects.
-
-Modules:
-
-## datetime
-
-- Module introduction
-- Capability pages
-- Exercises
-
-## re
-
-- Module introduction
-- Capability pages
-- Exercises
-
-## itertools
-
-- Module introduction
-- Capability pages
-- Exercises
-
-## functools
-
-- Module introduction
-- Capability pages
-- Exercises
-
-## logging
-
-- Module introduction
-- Capability pages
-- Exercises
-
----
-
-# Phase 5 - Building Command-Line Tools
-
-Goal:
-
-Develop practical CLI skills.
-
-Modules:
-
-## argparse
-
-- Module introduction
-- Capability pages
-- Exercises
-
-## subprocess
-
-- Module introduction
-- Capability pages
-- Exercises
-
----
-
-# Phase 6 - Mini Projects
-
-Goal:
-
-Combine multiple modules into useful tools.
-
-Projects:
-
-## Downloads Organizer
-
-Modules:
+A learner can comfortably build practical filesystem utilities using:
 
 - pathlib
 - shutil
-
-Status:
-
-- Design
-- Exercises
-
-## Markdown Analyzer
-
-Modules:
-
-- pathlib
-- collections
-
-Status:
-
-- Design
-- Exercises
-
-## Log Analyzer
-
-Modules:
-
-- pathlib
-- re
-- collections
-
-Status:
-
-- Design
-- Exercises
-
-## Repository Scanner
-
-Modules:
-
-- pathlib
-- collections
-
-Status:
-
-- Design
-- Exercises
-
----
-
-# Phase 7 - Real-World Projects
-
-Goal:
-
-Build realistic software that combines many previously learned capabilities.
-
-Projects:
-
-## Backup Utility
-
-- Design
-- Exercises
-
-## Personal Knowledge Base
-
-- Design
-- Exercises
-
-## Static Site Generator
-
-- Design
-- Exercises
-
-## Documentation Generator
-
-- Design
-- Exercises
-
----
-
-# Future Ideas
-
-These are intentionally lower priority.
-
-## Gamification
-
-- Progress tracking
-- Module completion indicators
-- Exercise statistics
-
-## Visual Improvements
-
-- Custom styling
-- Enhanced navigation
-- Improved landing page
-
-## Advanced Content
-
-- typing
-- sqlite3
-- asyncio
-- testing
-- packaging
-
----
-
-# Success Criteria
-
-Python Mastery Path is successful if it helps a learner move from:
-
-```text
-"I know Python syntax."
-```
-
-to:
-
-```text
-"I naturally use Python capabilities
-to solve real-world problems."
-```
-
-The project should always prioritize practical capability building over theoretical knowledge.
+- json
 
 ---
 
 # Current Priority
 
 ```text
-pathlib
+Review pathlib
     ↓
-Inspecting Paths
+Refine pathlib
+    ↓
+Begin shutil
 ```
 
 Do not rush into:
 
-- Additional modules
 - Mini projects
+- Additional learning tracks
 - Styling improvements
 - Gamification
 
-First complete the remaining pathlib capabilities and validate that the learning progression works consistently across the entire module.
+First ensure the pathlib module represents the quality standard for future modules.
