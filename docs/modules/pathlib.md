@@ -61,13 +61,11 @@ Learn how to search for files and folders.
 
 Learn how to create and manage directories.
 
-🚧 Coming soon
+➡️ [Open Directory Operations Exercises](./pathlib/directory-operations.md).
 
 ### Filesystem Automation
 
-Combine everything learned so far.
-
-🚧 Coming soon
+➡️ [Open Filesystem Automation Exercises](./pathlib/filesystem-automation.md).
 
 ---
 
